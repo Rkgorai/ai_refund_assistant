@@ -1,0 +1,42 @@
+ticket_id,customer_id,order_id,issue_description,status,created_at
+9001,15,10008,The Womens Cotton Nightdress is defective or unwanted. Please refund.,Open,2026-06-18
+9002,4,10017,The Bajaj Rex Mixer Grinder 500W is defective or unwanted. Please refund.,Open,2026-06-18
+9003,7,10020,Why was my return request for Womens Cotton Nightdress rejected?,Closed,2026-06-18
+9004,6,10022,Why was my return request for Dabur Honey 500g rejected?,Closed,2026-06-10
+9005,13,10028,Returned Philips Trimmer QP2525 successfully.,Closed,2026-06-13
+9006,6,10062,Returned Bajaj Rex Mixer Grinder 500W successfully.,Closed,2026-06-13
+9007,11,10067,Why was my return request for FabIndia Men Cotton Kurta rejected?,Closed,2026-06-10
+9008,1,10069,Why was my return request for Dabur Honey 500g rejected?,Closed,2026-06-10
+9009,4,10085,Why was my return request for Kissan Tomato Ketchup 1kg rejected?,Closed,2026-05-30
+9010,1,10092,Returned Raymond Premium Cotton Shirt successfully.,Closed,2026-06-14
+9011,14,10094,The OnePlus Nord Buds 2 is defective or unwanted. Please refund.,Open,2026-06-18
+9012,13,10096,Why was my return request for Noise ColorFit Pro 4 Smartwatch rejected?,Closed,2026-06-01
+9013,15,10105,Returned H&M Basic White T-Shirt successfully.,Closed,2026-06-13
+9014,14,10110,Why was my return request for JBL Flip 6 Bluetooth Speaker rejected?,Closed,2026-06-10
+9015,8,10126,Returned HP Wired Keyboard and Mouse successfully.,Closed,2026-06-11
+9016,5,10134,Returned Bata Women Sandals successfully.,Closed,2026-06-09
+9017,5,10150,Why was my return request for Prestige Svachh Pressure Cooker 3L rejected?,Closed,2026-06-15
+9018,7,10153,The FabIndia Men Cotton Kurta is defective or unwanted. Please refund.,Open,2026-06-18
+9019,5,10155,The Aurelia Women Dupatta is defective or unwanted. Please refund.,Open,2026-06-18
+9020,13,10162,The Peter England Formal Trousers is defective or unwanted. Please refund.,Open,2026-06-17
+9021,14,10163,The Philips Trimmer QP2525 is defective or unwanted. Please refund.,Open,2026-06-19
+9022,8,10170,Returned Kanchipuram Art Silk Saree successfully.,Closed,2026-06-09
+9023,7,10172,Why was my return request for Sony Bravia 55 inch 4K Ultra HD TV rejected?,Closed,2026-06-03
+9024,2,10173,Why was my return request for Allen Solly Polo T-Shirt rejected?,Closed,2026-06-09
+9025,1,10174,Returned Cello Opalware Dinner Set 33pcs successfully.,Closed,2026-06-09
+9026,3,10179,Returned Omron BP Monitor successfully.,Closed,2026-06-13
+9027,8,10181,Why was my return request for Britannia Good Day Cookies 600g rejected?,Closed,2026-06-01
+9028,6,10184,The Saffola Gold Cooking Oil 5L is defective or unwanted. Please refund.,Open,2026-06-17
+9029,6,10185,Returned Philips Iron Box 1000W successfully.,Closed,2026-06-12
+9030,11,10186,Why was my return request for Xiaomi Power Bank 3i 20000mAh rejected?,Closed,2026-06-15
+9031,12,10188,The Mi Smart TV 43 inch 4K is defective or unwanted. Please refund.,Open,2026-06-17
+9032,11,10191,Returned Nykaa Matte Lipstick successfully.,Closed,2026-06-11
+9033,6,10199,Returned Amazon Echo Dot (4th Gen) successfully.,Closed,2026-06-14
+9034,9,10204,The Samsung 28L Convection Microwave is defective or unwanted. Please refund.,Open,2026-06-17
+9035,15,10205,The Prestige Svachh Pressure Cooker 3L is defective or unwanted. Please refund.,Open,2026-06-18
+9036,7,10210,Why was my return request for Nykaa Matte Lipstick rejected?,Closed,2026-05-30
+9037,1,10241,Why was my return request for Sony WH-1000XM5 Headphones rejected?,Closed,2026-06-16
+9038,9,10242,Why was my return request for Kent Grand RO Water Purifier rejected?,Closed,2026-06-02
+9039,2,10245,The Bajaj Rex Mixer Grinder 500W is defective or unwanted. Please refund.,Open,2026-06-18
+9040,2,10246,Why was my return request for Godrej 190L Single Door Refrigerator rejected?,Closed,2026-06-06
+9041,4,10250,Why was my return request for Titan Skinn Perfume 100ml rejected?,Closed,2026-06-14

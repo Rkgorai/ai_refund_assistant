@@ -1,0 +1,91 @@
+item_id,name,description,category,base_price,return_policy
+1001,Aashirvaad Select Sharbati Atta 5kg,Groceries product,Groceries,350.0,Non-Returnable
+1002,Tata Salt 1kg,Groceries product,Groceries,28.0,Non-Returnable
+1003,Amul Taaza Milk 1L,Groceries product,Groceries,70.0,Non-Returnable
+1004,India Gate Basmati Rice 5kg,Groceries product,Groceries,850.0,7 Days Return
+1005,Haldiram Bhujia Sev 400g,Groceries product,Groceries,110.0,Non-Returnable
+1006,Maggi 2-Minute Noodles 12-Pack,Groceries product,Groceries,168.0,Non-Returnable
+1007,Brooke Bond Red Label Tea 500g,Groceries product,Groceries,270.0,Non-Returnable
+1008,Fortune Sunlite Refined Sunflower Oil 1L,Groceries product,Groceries,145.0,Non-Returnable
+1009,Everest Garam Masala 100g,Groceries product,Groceries,85.0,Non-Returnable
+1010,Britannia Good Day Cookies 600g,Groceries product,Groceries,150.0,Non-Returnable
+1011,Patanjali Cow Ghee 1L,Groceries product,Groceries,650.0,Non-Returnable
+1012,Amul Butter 500g,Groceries product,Groceries,285.0,Non-Returnable
+1013,Mother Dairy Paneer 200g,Groceries product,Groceries,85.0,Non-Returnable
+1014,Saffola Gold Cooking Oil 5L,Groceries product,Groceries,950.0,Non-Returnable
+1015,Dabur Honey 500g,Groceries product,Groceries,230.0,Non-Returnable
+1016,Kissan Tomato Ketchup 1kg,Groceries product,Groceries,140.0,Non-Returnable
+1017,Tata Sampann Toor Dal 1kg,Groceries product,Groceries,190.0,Non-Returnable
+1018,Gowardhan Ghee 1L,Groceries product,Groceries,680.0,Non-Returnable
+1019,MTR Rava Idli Mix 500g,Groceries product,Groceries,120.0,Non-Returnable
+1020,Surf Excel Easy Wash 1kg,Groceries product,Groceries,135.0,Non-Returnable
+1021,Vim Dishwash Liquid 500ml,Groceries product,Groceries,105.0,Non-Returnable
+1022,Ariel Matic Front Load 1kg,Groceries product,Groceries,250.0,Non-Returnable
+1023,Himalaya Purifying Neem Face Wash 150ml,Groceries product,Groceries,210.0,Non-Returnable
+1024,Dettol Antiseptic Liquid 500ml,Groceries product,Groceries,195.0,Non-Returnable
+1025,FabIndia Men Cotton Kurta,Clothing product,Clothing,1299.0,15 Days Return
+1026,Biba Women Printed Salwar Suit,Clothing product,Clothing,2499.0,15 Days Return
+1027,Raymond Premium Cotton Shirt,Clothing product,Clothing,1899.0,15 Days Return
+1028,Manyavar Wedding Sherwani,Clothing product,Clothing,15000.0,7 Days Return
+1029,W for Woman Straight Kurti,Clothing product,Clothing,1199.0,15 Days Return
+1030,Levis Men 511 Slim Fit Jeans,Clothing product,Clothing,2999.0,30 Days Return
+1031,Allen Solly Polo T-Shirt,Clothing product,Clothing,899.0,15 Days Return
+1032,Nalli Silk Saree,Clothing product,Clothing,8500.0,7 Days Return
+1033,Kanchipuram Art Silk Saree,Clothing product,Clothing,3500.0,7 Days Return
+1034,Peter England Formal Trousers,Clothing product,Clothing,1499.0,15 Days Return
+1035,Jockey Men Innerwear 3-Pack,Clothing product,Clothing,599.0,Non-Returnable
+1036,Puma Men Running Shoes,Clothing product,Clothing,3499.0,30 Days Return
+1037,Bata Women Sandals,Clothing product,Clothing,899.0,15 Days Return
+1038,Red Tape Leather Loafers,Clothing product,Clothing,2199.0,15 Days Return
+1039,Aurelia Women Dupatta,Clothing product,Clothing,499.0,15 Days Return
+1040,H&M Basic White T-Shirt,Clothing product,Clothing,499.0,30 Days Return
+1041,Zara Men Winter Jacket,Clothing product,Clothing,4500.0,30 Days Return
+1042,Global Desi Maxi Dress,Clothing product,Clothing,2199.0,15 Days Return
+1043,Ruched Georgette Lehenga,Clothing product,Clothing,5500.0,7 Days Return
+1044,Titan Skinn Perfume 100ml,Clothing product,Clothing,1495.0,Non-Returnable
+1045,Lakme Eyeconic Kajal,Clothing product,Clothing,250.0,Non-Returnable
+1046,Nykaa Matte Lipstick,Clothing product,Clothing,399.0,Non-Returnable
+1047,Bata Men Casual Shoes,Clothing product,Clothing,1799.0,30 Days Return
+1048,Pepe Jeans,Clothing product,Clothing,2999.0,30 Days Return
+1049,Womens Cotton Nightdress,Clothing product,Clothing,699.0,15 Days Return
+1050,Mens Cotton Boxer Shorts 3-Pack,Clothing product,Clothing,799.0,Non-Returnable
+1051,boAt Airdopes 141,Electronics product,Electronics,1299.0,7 Days Replacement
+1052,Noise ColorFit Pro 4 Smartwatch,Electronics product,Electronics,2499.0,7 Days Replacement
+1053,Xiaomi Power Bank 3i 20000mAh,Electronics product,Electronics,2199.0,7 Days Replacement
+1054,OnePlus Nord Buds 2,Electronics product,Electronics,2999.0,7 Days Replacement
+1055,Portronics USB Hub 4-Port,Electronics product,Electronics,399.0,15 Days Return
+1056,Samsung Galaxy M14 5G,Electronics product,Electronics,13990.0,7 Days Replacement
+1057,Apple iPhone 15 128GB,Electronics product,Electronics,79900.0,7 Days Replacement
+1058,Sony WH-1000XM5 Headphones,Electronics product,Electronics,29990.0,7 Days Replacement
+1059,JBL Flip 6 Bluetooth Speaker,Electronics product,Electronics,11999.0,7 Days Replacement
+1060,SanDisk 128GB Pendrive,Electronics product,Electronics,899.0,15 Days Return
+1061,Logitech M235 Wireless Mouse,Electronics product,Electronics,799.0,15 Days Return
+1062,HP Wired Keyboard and Mouse,Electronics product,Electronics,1299.0,15 Days Return
+1063,Realme Buds Wireless 2 Neo,Electronics product,Electronics,1499.0,7 Days Replacement
+1064,Ambrane 10000mAh Powerbank,Electronics product,Electronics,999.0,7 Days Replacement
+1065,Boult Audio Z40 True Wireless,Electronics product,Electronics,1199.0,7 Days Replacement
+1066,Amazon Echo Dot (4th Gen),Electronics product,Electronics,3499.0,15 Days Return
+1067,Fire TV Stick with Alexa,Electronics product,Electronics,3999.0,15 Days Return
+1068,Kindle Paperwhite 16GB,Electronics product,Electronics,13999.0,15 Days Return
+1069,Philips Trimmer QP2525,Electronics product,Electronics,1499.0,Non-Returnable
+1070,Omron BP Monitor,Electronics product,Electronics,2150.0,Non-Returnable
+1071,Prestige Svachh Pressure Cooker 3L,Home Appliances product,Home Appliances,1450.0,15 Days Return
+1072,Bajaj Rex Mixer Grinder 500W,Home Appliances product,Home Appliances,2299.0,7 Days Replacement
+1073,Havells Nicola Ceiling Fan,Home Appliances product,Home Appliances,2650.0,7 Days Replacement
+1074,Voltas 1.5 Ton Split AC,Home Appliances product,Home Appliances,32990.0,7 Days Replacement
+1075,Godrej 190L Single Door Refrigerator,Home Appliances product,Home Appliances,15490.0,7 Days Replacement
+1076,Pigeon Induction Cooktop,Home Appliances product,Home Appliances,1699.0,15 Days Return
+1077,LG 8 Kg Fully Automatic Washing Machine,Home Appliances product,Home Appliances,21990.0,7 Days Replacement
+1078,Samsung 28L Convection Microwave,Home Appliances product,Home Appliances,12490.0,7 Days Replacement
+1079,Philips Iron Box 1000W,Home Appliances product,Home Appliances,850.0,15 Days Return
+1080,Usha Room Heater 2000W,Home Appliances product,Home Appliances,1499.0,7 Days Replacement
+1081,Crompton Amica Water Heater 15L,Home Appliances product,Home Appliances,6599.0,7 Days Replacement
+1082,Eureka Forbes Aquaguard Water Purifier,Home Appliances product,Home Appliances,14999.0,7 Days Replacement
+1083,Kent Grand RO Water Purifier,Home Appliances product,Home Appliances,15500.0,7 Days Replacement
+1084,Milton Thermosteel Flask 1L,Home Appliances product,Home Appliances,950.0,15 Days Return
+1085,Cello Opalware Dinner Set 33pcs,Home Appliances product,Home Appliances,1899.0,15 Days Return
+1086,Dyson V11 Absolute Vacuum Cleaner,Home Appliances product,Home Appliances,52900.0,15 Days Return
+1087,IFB 20L Solo Microwave Oven,Home Appliances product,Home Appliances,6290.0,7 Days Replacement
+1088,Whirlpool 240L Frost Free Refrigerator,Home Appliances product,Home Appliances,24990.0,7 Days Replacement
+1089,Sony Bravia 55 inch 4K Ultra HD TV,Home Appliances product,Home Appliances,64990.0,7 Days Replacement
+1090,Mi Smart TV 43 inch 4K,Home Appliances product,Home Appliances,25999.0,7 Days Replacement
