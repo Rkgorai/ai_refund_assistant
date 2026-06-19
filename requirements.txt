@@ -1,0 +1,18 @@
+# Core AI & Agent Framework
+langchain
+langchain-community
+langchain-huggingface
+langchain-groq
+langgraph
+
+# Vector DB & Embeddings
+faiss-cpu
+sentence-transformers
+
+# Document Loaders
+pypdf
+docx2txt
+unstructured
+openpyxl
+jq
+markdown
