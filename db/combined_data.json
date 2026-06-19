@@ -1,0 +1,3622 @@
+[
+    {
+        "customer_id": "1",
+        "name": "Rahul Sharma",
+        "email": "rahul.s@example.com",
+        "phone": "9876543210",
+        "orders": [
+            {
+                "order_id": "10003",
+                "order_date": "2026-04-15",
+                "delivery_date": "2026-04-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1012",
+                    "name": "Amul Butter 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "285.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10019",
+                "order_date": "2026-05-29",
+                "delivery_date": "2026-06-05",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10044",
+                "order_date": "2026-06-11",
+                "delivery_date": "2026-06-17",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1075",
+                    "name": "Godrej 190L Single Door Refrigerator",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "15490.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10048",
+                "order_date": "2026-03-26",
+                "delivery_date": "2026-03-31",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1080",
+                    "name": "Usha Room Heater 2000W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10069",
+                "order_date": "2026-05-16",
+                "delivery_date": "2026-05-18",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10070",
+                "order_date": "2026-05-05",
+                "delivery_date": "2026-05-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1014",
+                    "name": "Saffola Gold Cooking Oil 5L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "950.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10081",
+                "order_date": "2026-04-01",
+                "delivery_date": "2026-04-08",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1032",
+                    "name": "Nalli Silk Saree",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "8500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10092",
+                "order_date": "2026-04-30",
+                "delivery_date": "2026-05-07",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1027",
+                    "name": "Raymond Premium Cotton Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10097",
+                "order_date": "2026-03-26",
+                "delivery_date": "2026-03-27",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1051",
+                    "name": "boAt Airdopes 141",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10109",
+                "order_date": "2026-06-05",
+                "delivery_date": "2026-06-09",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1054",
+                    "name": "OnePlus Nord Buds 2",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10131",
+                "order_date": "2026-06-06",
+                "delivery_date": "2026-06-13",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1079",
+                    "name": "Philips Iron Box 1000W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "850.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10133",
+                "order_date": "2026-04-03",
+                "delivery_date": "2026-04-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1053",
+                    "name": "Xiaomi Power Bank 3i 20000mAh",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2199.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10140",
+                "order_date": "2026-03-24",
+                "delivery_date": "2026-03-31",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1012",
+                    "name": "Amul Butter 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "285.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10141",
+                "order_date": "2026-04-06",
+                "delivery_date": "2026-04-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1087",
+                    "name": "IFB 20L Solo Microwave Oven",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "6290.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10147",
+                "order_date": "2026-03-31",
+                "delivery_date": "2026-04-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1025",
+                    "name": "FabIndia Men Cotton Kurta",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10174",
+                "order_date": "2026-06-17",
+                "delivery_date": "2026-06-22",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1085",
+                    "name": "Cello Opalware Dinner Set 33pcs",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10217",
+                "order_date": "2026-05-22",
+                "delivery_date": "2026-05-26",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1012",
+                    "name": "Amul Butter 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "285.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10241",
+                "order_date": "2026-02-23",
+                "delivery_date": "2026-03-02",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1058",
+                    "name": "Sony WH-1000XM5 Headphones",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "29990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "2",
+        "name": "Priya Patel",
+        "email": "priya.p@example.com",
+        "phone": "9876543211",
+        "orders": [
+            {
+                "order_id": "10002",
+                "order_date": "2026-04-10",
+                "delivery_date": "2026-04-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1087",
+                    "name": "IFB 20L Solo Microwave Oven",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "6290.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10010",
+                "order_date": "2026-05-01",
+                "delivery_date": "2026-05-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1030",
+                    "name": "Levis Men 511 Slim Fit Jeans",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2999.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10015",
+                "order_date": "2026-04-07",
+                "delivery_date": "2026-04-13",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1028",
+                    "name": "Manyavar Wedding Sherwani",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "15000.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10073",
+                "order_date": "2026-03-31",
+                "delivery_date": "2026-04-03",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1086",
+                    "name": "Dyson V11 Absolute Vacuum Cleaner",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "52900.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10100",
+                "order_date": "2026-04-10",
+                "delivery_date": "2026-04-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1061",
+                    "name": "Logitech M235 Wireless Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "799.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10101",
+                "order_date": "2026-06-15",
+                "delivery_date": "2026-06-17",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1084",
+                    "name": "Milton Thermosteel Flask 1L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "950.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10106",
+                "order_date": "2026-03-30",
+                "delivery_date": "2026-04-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1076",
+                    "name": "Pigeon Induction Cooktop",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1699.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10123",
+                "order_date": "2026-05-03",
+                "delivery_date": "2026-05-05",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1025",
+                    "name": "FabIndia Men Cotton Kurta",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10127",
+                "order_date": "2026-06-09",
+                "delivery_date": "2026-06-14",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1009",
+                    "name": "Everest Garam Masala 100g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "85.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10173",
+                "order_date": "2026-05-04",
+                "delivery_date": "2026-05-09",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1031",
+                    "name": "Allen Solly Polo T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10187",
+                "order_date": "2026-06-01",
+                "delivery_date": "2026-06-05",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1031",
+                    "name": "Allen Solly Polo T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10189",
+                "order_date": "2026-05-14",
+                "delivery_date": "2026-05-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1063",
+                    "name": "Realme Buds Wireless 2 Neo",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10192",
+                "order_date": "2026-03-29",
+                "delivery_date": "2026-04-03",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1085",
+                    "name": "Cello Opalware Dinner Set 33pcs",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10202",
+                "order_date": "2026-06-10",
+                "delivery_date": "2026-06-12",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1042",
+                    "name": "Global Desi Maxi Dress",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2199.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10236",
+                "order_date": "2026-05-11",
+                "delivery_date": "2026-05-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1061",
+                    "name": "Logitech M235 Wireless Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "799.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10245",
+                "order_date": "2026-05-13",
+                "delivery_date": "2026-05-16",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1072",
+                    "name": "Bajaj Rex Mixer Grinder 500W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10246",
+                "order_date": "2026-02-21",
+                "delivery_date": "2026-02-24",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1075",
+                    "name": "Godrej 190L Single Door Refrigerator",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "15490.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "3",
+        "name": "Amit Singh",
+        "email": "amit.s@example.com",
+        "phone": "9876543212",
+        "orders": [
+            {
+                "order_id": "10006",
+                "order_date": "2026-05-06",
+                "delivery_date": "2026-05-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1028",
+                    "name": "Manyavar Wedding Sherwani",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "15000.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10013",
+                "order_date": "2026-02-20",
+                "delivery_date": "2026-02-26",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1060",
+                    "name": "SanDisk 128GB Pendrive",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10050",
+                "order_date": "2026-04-21",
+                "delivery_date": "2026-04-24",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1086",
+                    "name": "Dyson V11 Absolute Vacuum Cleaner",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "52900.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10052",
+                "order_date": "2026-02-26",
+                "delivery_date": "2026-02-28",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1045",
+                    "name": "Lakme Eyeconic Kajal",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "250.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10098",
+                "order_date": "2026-05-16",
+                "delivery_date": "2026-05-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1060",
+                    "name": "SanDisk 128GB Pendrive",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10125",
+                "order_date": "2026-04-17",
+                "delivery_date": "2026-04-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1082",
+                    "name": "Eureka Forbes Aquaguard Water Purifier",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "14999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10168",
+                "order_date": "2026-04-01",
+                "delivery_date": "2026-04-08",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1022",
+                    "name": "Ariel Matic Front Load 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "250.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10179",
+                "order_date": "2026-05-03",
+                "delivery_date": "2026-05-08",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1070",
+                    "name": "Omron BP Monitor",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2150.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10195",
+                "order_date": "2026-03-01",
+                "delivery_date": "2026-03-03",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1077",
+                    "name": "LG 8 Kg Fully Automatic Washing Machine",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "21990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10218",
+                "order_date": "2026-05-08",
+                "delivery_date": "2026-05-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1048",
+                    "name": "Pepe Jeans",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2999.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10233",
+                "order_date": "2026-03-13",
+                "delivery_date": "2026-03-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1078",
+                    "name": "Samsung 28L Convection Microwave",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "12490.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10247",
+                "order_date": "2026-06-08",
+                "delivery_date": "2026-06-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1077",
+                    "name": "LG 8 Kg Fully Automatic Washing Machine",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "21990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "4",
+        "name": "Anjali Gupta",
+        "email": "anjali.g@example.com",
+        "phone": "9876543213",
+        "orders": [
+            {
+                "order_id": "10017",
+                "order_date": "2026-03-15",
+                "delivery_date": "2026-03-20",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1072",
+                    "name": "Bajaj Rex Mixer Grinder 500W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10027",
+                "order_date": "2026-06-08",
+                "delivery_date": "2026-06-14",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1073",
+                    "name": "Havells Nicola Ceiling Fan",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2650.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10038",
+                "order_date": "2026-04-25",
+                "delivery_date": "2026-04-27",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1069",
+                    "name": "Philips Trimmer QP2525",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10047",
+                "order_date": "2026-02-25",
+                "delivery_date": "2026-03-02",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1052",
+                    "name": "Noise ColorFit Pro 4 Smartwatch",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10078",
+                "order_date": "2026-02-23",
+                "delivery_date": "2026-03-02",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1066",
+                    "name": "Amazon Echo Dot (4th Gen)",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "3499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10083",
+                "order_date": "2026-06-18",
+                "delivery_date": "2026-06-25",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1019",
+                    "name": "MTR Rava Idli Mix 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "120.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10084",
+                "order_date": "2026-03-21",
+                "delivery_date": "2026-03-26",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1023",
+                    "name": "Himalaya Purifying Neem Face Wash 150ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "210.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10085",
+                "order_date": "2026-03-08",
+                "delivery_date": "2026-03-12",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1016",
+                    "name": "Kissan Tomato Ketchup 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "140.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10089",
+                "order_date": "2026-03-19",
+                "delivery_date": "2026-03-22",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1036",
+                    "name": "Puma Men Running Shoes",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "3499.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10095",
+                "order_date": "2026-06-15",
+                "delivery_date": "2026-06-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1035",
+                    "name": "Jockey Men Innerwear 3-Pack",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "599.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10103",
+                "order_date": "2026-03-12",
+                "delivery_date": "2026-03-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1060",
+                    "name": "SanDisk 128GB Pendrive",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10116",
+                "order_date": "2026-04-27",
+                "delivery_date": "2026-05-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1011",
+                    "name": "Patanjali Cow Ghee 1L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "650.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10118",
+                "order_date": "2026-05-10",
+                "delivery_date": "2026-05-16",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1052",
+                    "name": "Noise ColorFit Pro 4 Smartwatch",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10169",
+                "order_date": "2026-05-31",
+                "delivery_date": "2026-06-02",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1064",
+                    "name": "Ambrane 10000mAh Powerbank",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10176",
+                "order_date": "2026-03-14",
+                "delivery_date": "2026-03-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1080",
+                    "name": "Usha Room Heater 2000W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10212",
+                "order_date": "2026-04-08",
+                "delivery_date": "2026-04-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1014",
+                    "name": "Saffola Gold Cooking Oil 5L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "950.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10221",
+                "order_date": "2026-04-24",
+                "delivery_date": "2026-04-25",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1066",
+                    "name": "Amazon Echo Dot (4th Gen)",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "3499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10250",
+                "order_date": "2026-04-17",
+                "delivery_date": "2026-04-19",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1044",
+                    "name": "Titan Skinn Perfume 100ml",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1495.0",
+                    "return_policy": "Non-Returnable"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "5",
+        "name": "Vikram Verma",
+        "email": "vikram.v@example.com",
+        "phone": "9876543214",
+        "orders": [
+            {
+                "order_id": "10029",
+                "order_date": "2026-04-25",
+                "delivery_date": "2026-04-27",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1068",
+                    "name": "Kindle Paperwhite 16GB",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "13999.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10057",
+                "order_date": "2026-04-25",
+                "delivery_date": "2026-05-02",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1007",
+                    "name": "Brooke Bond Red Label Tea 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "270.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10074",
+                "order_date": "2026-04-27",
+                "delivery_date": "2026-04-30",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1065",
+                    "name": "Boult Audio Z40 True Wireless",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1199.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10076",
+                "order_date": "2026-06-18",
+                "delivery_date": "2026-06-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1052",
+                    "name": "Noise ColorFit Pro 4 Smartwatch",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10079",
+                "order_date": "2026-03-31",
+                "delivery_date": "2026-04-03",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1066",
+                    "name": "Amazon Echo Dot (4th Gen)",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "3499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10107",
+                "order_date": "2026-06-03",
+                "delivery_date": "2026-06-10",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1088",
+                    "name": "Whirlpool 240L Frost Free Refrigerator",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "24990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10132",
+                "order_date": "2026-05-19",
+                "delivery_date": "2026-05-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1085",
+                    "name": "Cello Opalware Dinner Set 33pcs",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10134",
+                "order_date": "2026-04-21",
+                "delivery_date": "2026-04-22",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1037",
+                    "name": "Bata Women Sandals",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10150",
+                "order_date": "2026-04-27",
+                "delivery_date": "2026-04-28",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1071",
+                    "name": "Prestige Svachh Pressure Cooker 3L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1450.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10152",
+                "order_date": "2026-04-19",
+                "delivery_date": "2026-04-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1054",
+                    "name": "OnePlus Nord Buds 2",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10155",
+                "order_date": "2026-04-05",
+                "delivery_date": "2026-04-11",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1039",
+                    "name": "Aurelia Women Dupatta",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10180",
+                "order_date": "2026-05-12",
+                "delivery_date": "2026-05-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1062",
+                    "name": "HP Wired Keyboard and Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10211",
+                "order_date": "2026-04-15",
+                "delivery_date": "2026-04-17",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1046",
+                    "name": "Nykaa Matte Lipstick",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "399.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10215",
+                "order_date": "2026-02-21",
+                "delivery_date": "2026-02-24",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1090",
+                    "name": "Mi Smart TV 43 inch 4K",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "25999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10220",
+                "order_date": "2026-04-17",
+                "delivery_date": "2026-04-22",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1057",
+                    "name": "Apple iPhone 15 128GB",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "79900.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10224",
+                "order_date": "2026-04-16",
+                "delivery_date": "2026-04-22",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1042",
+                    "name": "Global Desi Maxi Dress",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2199.0",
+                    "return_policy": "15 Days Return"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "6",
+        "name": "Neha Reddy",
+        "email": "neha.r@example.com",
+        "phone": "9876543215",
+        "orders": [
+            {
+                "order_id": "10007",
+                "order_date": "2026-03-07",
+                "delivery_date": "2026-03-08",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1045",
+                    "name": "Lakme Eyeconic Kajal",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "250.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10011",
+                "order_date": "2026-05-23",
+                "delivery_date": "2026-05-29",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1021",
+                    "name": "Vim Dishwash Liquid 500ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "105.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10014",
+                "order_date": "2026-06-14",
+                "delivery_date": "2026-06-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1008",
+                    "name": "Fortune Sunlite Refined Sunflower Oil 1L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "145.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10018",
+                "order_date": "2026-06-01",
+                "delivery_date": "2026-06-06",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1029",
+                    "name": "W for Woman Straight Kurti",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1199.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10022",
+                "order_date": "2026-05-29",
+                "delivery_date": "2026-06-02",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10036",
+                "order_date": "2026-02-28",
+                "delivery_date": "2026-03-06",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1055",
+                    "name": "Portronics USB Hub 4-Port",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "399.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10058",
+                "order_date": "2026-05-16",
+                "delivery_date": "2026-05-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1017",
+                    "name": "Tata Sampann Toor Dal 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "190.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10061",
+                "order_date": "2026-05-23",
+                "delivery_date": "2026-05-29",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1006",
+                    "name": "Maggi 2-Minute Noodles 12-Pack",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "168.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10062",
+                "order_date": "2026-04-27",
+                "delivery_date": "2026-05-02",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1072",
+                    "name": "Bajaj Rex Mixer Grinder 500W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10068",
+                "order_date": "2026-03-24",
+                "delivery_date": "2026-03-31",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1083",
+                    "name": "Kent Grand RO Water Purifier",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "15500.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10086",
+                "order_date": "2026-03-18",
+                "delivery_date": "2026-03-23",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1057",
+                    "name": "Apple iPhone 15 128GB",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "79900.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10090",
+                "order_date": "2026-05-30",
+                "delivery_date": "2026-06-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1070",
+                    "name": "Omron BP Monitor",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2150.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10099",
+                "order_date": "2026-05-01",
+                "delivery_date": "2026-05-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1044",
+                    "name": "Titan Skinn Perfume 100ml",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1495.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10108",
+                "order_date": "2026-05-02",
+                "delivery_date": "2026-05-03",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1069",
+                    "name": "Philips Trimmer QP2525",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10114",
+                "order_date": "2026-05-04",
+                "delivery_date": "2026-05-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1024",
+                    "name": "Dettol Antiseptic Liquid 500ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "195.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10167",
+                "order_date": "2026-04-12",
+                "delivery_date": "2026-04-16",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1056",
+                    "name": "Samsung Galaxy M14 5G",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "13990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10178",
+                "order_date": "2026-05-12",
+                "delivery_date": "2026-05-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1017",
+                    "name": "Tata Sampann Toor Dal 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "190.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10182",
+                "order_date": "2026-06-17",
+                "delivery_date": "2026-06-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1012",
+                    "name": "Amul Butter 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "285.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10183",
+                "order_date": "2026-05-16",
+                "delivery_date": "2026-05-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1087",
+                    "name": "IFB 20L Solo Microwave Oven",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "6290.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10184",
+                "order_date": "2026-04-19",
+                "delivery_date": "2026-04-20",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1014",
+                    "name": "Saffola Gold Cooking Oil 5L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "950.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10185",
+                "order_date": "2026-06-10",
+                "delivery_date": "2026-06-16",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1079",
+                    "name": "Philips Iron Box 1000W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "850.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10193",
+                "order_date": "2026-03-10",
+                "delivery_date": "2026-03-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1032",
+                    "name": "Nalli Silk Saree",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "8500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10199",
+                "order_date": "2026-04-22",
+                "delivery_date": "2026-04-27",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1066",
+                    "name": "Amazon Echo Dot (4th Gen)",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "3499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10206",
+                "order_date": "2026-03-17",
+                "delivery_date": "2026-03-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1059",
+                    "name": "JBL Flip 6 Bluetooth Speaker",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "11999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10228",
+                "order_date": "2026-03-31",
+                "delivery_date": "2026-04-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1022",
+                    "name": "Ariel Matic Front Load 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "250.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10237",
+                "order_date": "2026-04-20",
+                "delivery_date": "2026-04-24",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1065",
+                    "name": "Boult Audio Z40 True Wireless",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1199.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10244",
+                "order_date": "2026-03-09",
+                "delivery_date": "2026-03-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1087",
+                    "name": "IFB 20L Solo Microwave Oven",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "6290.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "7",
+        "name": "Suresh Iyer",
+        "email": "suresh.i@example.com",
+        "phone": "9876543216",
+        "orders": [
+            {
+                "order_id": "10020",
+                "order_date": "2026-04-20",
+                "delivery_date": "2026-04-25",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1049",
+                    "name": "Womens Cotton Nightdress",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "699.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10042",
+                "order_date": "2026-03-10",
+                "delivery_date": "2026-03-14",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1034",
+                    "name": "Peter England Formal Trousers",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10059",
+                "order_date": "2026-06-09",
+                "delivery_date": "2026-06-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1072",
+                    "name": "Bajaj Rex Mixer Grinder 500W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10072",
+                "order_date": "2026-03-07",
+                "delivery_date": "2026-03-12",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1001",
+                    "name": "Aashirvaad Select Sharbati Atta 5kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "350.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10129",
+                "order_date": "2026-03-31",
+                "delivery_date": "2026-04-02",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1078",
+                    "name": "Samsung 28L Convection Microwave",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "12490.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10145",
+                "order_date": "2026-06-07",
+                "delivery_date": "2026-06-10",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1071",
+                    "name": "Prestige Svachh Pressure Cooker 3L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1450.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10153",
+                "order_date": "2026-04-14",
+                "delivery_date": "2026-04-20",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1025",
+                    "name": "FabIndia Men Cotton Kurta",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10165",
+                "order_date": "2026-03-20",
+                "delivery_date": "2026-03-27",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1013",
+                    "name": "Mother Dairy Paneer 200g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "85.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10172",
+                "order_date": "2026-03-02",
+                "delivery_date": "2026-03-05",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1089",
+                    "name": "Sony Bravia 55 inch 4K Ultra HD TV",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "64990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10210",
+                "order_date": "2026-03-14",
+                "delivery_date": "2026-03-18",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1046",
+                    "name": "Nykaa Matte Lipstick",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "399.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10225",
+                "order_date": "2026-04-15",
+                "delivery_date": "2026-04-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1069",
+                    "name": "Philips Trimmer QP2525",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "Non-Returnable"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "8",
+        "name": "Kavita Joshi",
+        "email": "kavita.j@example.com",
+        "phone": "9876543217",
+        "orders": [
+            {
+                "order_id": "10016",
+                "order_date": "2026-03-28",
+                "delivery_date": "2026-04-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1051",
+                    "name": "boAt Airdopes 141",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10034",
+                "order_date": "2026-03-18",
+                "delivery_date": "2026-03-23",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1028",
+                    "name": "Manyavar Wedding Sherwani",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "15000.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10041",
+                "order_date": "2026-04-28",
+                "delivery_date": "2026-04-29",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1062",
+                    "name": "HP Wired Keyboard and Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10053",
+                "order_date": "2026-04-01",
+                "delivery_date": "2026-04-08",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1070",
+                    "name": "Omron BP Monitor",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2150.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10113",
+                "order_date": "2026-05-01",
+                "delivery_date": "2026-05-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1073",
+                    "name": "Havells Nicola Ceiling Fan",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2650.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10120",
+                "order_date": "2026-05-20",
+                "delivery_date": "2026-05-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1035",
+                    "name": "Jockey Men Innerwear 3-Pack",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "599.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10122",
+                "order_date": "2026-03-13",
+                "delivery_date": "2026-03-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1036",
+                    "name": "Puma Men Running Shoes",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "3499.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10126",
+                "order_date": "2026-05-26",
+                "delivery_date": "2026-05-27",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1062",
+                    "name": "HP Wired Keyboard and Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10138",
+                "order_date": "2026-04-28",
+                "delivery_date": "2026-05-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1089",
+                    "name": "Sony Bravia 55 inch 4K Ultra HD TV",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "64990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10139",
+                "order_date": "2026-02-25",
+                "delivery_date": "2026-03-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1011",
+                    "name": "Patanjali Cow Ghee 1L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "650.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10143",
+                "order_date": "2026-04-27",
+                "delivery_date": "2026-04-30",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1012",
+                    "name": "Amul Butter 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "285.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10151",
+                "order_date": "2026-05-30",
+                "delivery_date": "2026-06-03",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1016",
+                    "name": "Kissan Tomato Ketchup 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "140.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10170",
+                "order_date": "2026-02-23",
+                "delivery_date": "2026-03-02",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1033",
+                    "name": "Kanchipuram Art Silk Saree",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "3500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10175",
+                "order_date": "2026-05-20",
+                "delivery_date": "2026-05-25",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1037",
+                    "name": "Bata Women Sandals",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10181",
+                "order_date": "2026-05-21",
+                "delivery_date": "2026-05-28",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1010",
+                    "name": "Britannia Good Day Cookies 600g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "150.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10190",
+                "order_date": "2026-06-06",
+                "delivery_date": "2026-06-12",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1031",
+                    "name": "Allen Solly Polo T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10201",
+                "order_date": "2026-06-05",
+                "delivery_date": "2026-06-09",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1052",
+                    "name": "Noise ColorFit Pro 4 Smartwatch",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "9",
+        "name": "Rajesh Kumar",
+        "email": "rajesh.k@example.com",
+        "phone": "9876543218",
+        "orders": [
+            {
+                "order_id": "10023",
+                "order_date": "2026-06-05",
+                "delivery_date": "2026-06-12",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1023",
+                    "name": "Himalaya Purifying Neem Face Wash 150ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "210.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10024",
+                "order_date": "2026-05-02",
+                "delivery_date": "2026-05-09",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1078",
+                    "name": "Samsung 28L Convection Microwave",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "12490.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10031",
+                "order_date": "2026-05-21",
+                "delivery_date": "2026-05-22",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1058",
+                    "name": "Sony WH-1000XM5 Headphones",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "29990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10032",
+                "order_date": "2026-06-18",
+                "delivery_date": "2026-06-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1030",
+                    "name": "Levis Men 511 Slim Fit Jeans",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2999.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10046",
+                "order_date": "2026-06-10",
+                "delivery_date": "2026-06-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1011",
+                    "name": "Patanjali Cow Ghee 1L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "650.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10071",
+                "order_date": "2026-04-06",
+                "delivery_date": "2026-04-08",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10075",
+                "order_date": "2026-03-25",
+                "delivery_date": "2026-03-29",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1017",
+                    "name": "Tata Sampann Toor Dal 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "190.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10087",
+                "order_date": "2026-03-15",
+                "delivery_date": "2026-03-22",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1058",
+                    "name": "Sony WH-1000XM5 Headphones",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "29990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10119",
+                "order_date": "2026-03-15",
+                "delivery_date": "2026-03-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1068",
+                    "name": "Kindle Paperwhite 16GB",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "13999.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10124",
+                "order_date": "2026-06-12",
+                "delivery_date": "2026-06-17",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1017",
+                    "name": "Tata Sampann Toor Dal 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "190.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10156",
+                "order_date": "2026-04-09",
+                "delivery_date": "2026-04-16",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1062",
+                    "name": "HP Wired Keyboard and Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10171",
+                "order_date": "2026-05-05",
+                "delivery_date": "2026-05-10",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1021",
+                    "name": "Vim Dishwash Liquid 500ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "105.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10204",
+                "order_date": "2026-03-09",
+                "delivery_date": "2026-03-15",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1078",
+                    "name": "Samsung 28L Convection Microwave",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "12490.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10209",
+                "order_date": "2026-04-08",
+                "delivery_date": "2026-04-13",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1008",
+                    "name": "Fortune Sunlite Refined Sunflower Oil 1L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "145.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10239",
+                "order_date": "2026-04-09",
+                "delivery_date": "2026-04-16",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1050",
+                    "name": "Mens Cotton Boxer Shorts 3-Pack",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "799.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10242",
+                "order_date": "2026-05-18",
+                "delivery_date": "2026-05-24",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1083",
+                    "name": "Kent Grand RO Water Purifier",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "15500.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10243",
+                "order_date": "2026-05-02",
+                "delivery_date": "2026-05-05",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1079",
+                    "name": "Philips Iron Box 1000W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "850.0",
+                    "return_policy": "15 Days Return"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "10",
+        "name": "Sneha Desai",
+        "email": "sneha.d@example.com",
+        "phone": "9876543219",
+        "orders": [
+            {
+                "order_id": "10009",
+                "order_date": "2026-06-13",
+                "delivery_date": "2026-06-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1025",
+                    "name": "FabIndia Men Cotton Kurta",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10045",
+                "order_date": "2026-03-01",
+                "delivery_date": "2026-03-06",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1062",
+                    "name": "HP Wired Keyboard and Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10051",
+                "order_date": "2026-06-09",
+                "delivery_date": "2026-06-14",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1073",
+                    "name": "Havells Nicola Ceiling Fan",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2650.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10102",
+                "order_date": "2026-04-19",
+                "delivery_date": "2026-04-25",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1020",
+                    "name": "Surf Excel Easy Wash 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "135.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10111",
+                "order_date": "2026-04-20",
+                "delivery_date": "2026-04-24",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1069",
+                    "name": "Philips Trimmer QP2525",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10135",
+                "order_date": "2026-05-24",
+                "delivery_date": "2026-05-28",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1085",
+                    "name": "Cello Opalware Dinner Set 33pcs",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10160",
+                "order_date": "2026-02-27",
+                "delivery_date": "2026-03-06",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1043",
+                    "name": "Ruched Georgette Lehenga",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "5500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10164",
+                "order_date": "2026-03-23",
+                "delivery_date": "2026-03-26",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1009",
+                    "name": "Everest Garam Masala 100g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "85.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10203",
+                "order_date": "2026-05-01",
+                "delivery_date": "2026-05-06",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1071",
+                    "name": "Prestige Svachh Pressure Cooker 3L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1450.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10213",
+                "order_date": "2026-03-02",
+                "delivery_date": "2026-03-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1029",
+                    "name": "W for Woman Straight Kurti",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1199.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10222",
+                "order_date": "2026-05-10",
+                "delivery_date": "2026-05-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1063",
+                    "name": "Realme Buds Wireless 2 Neo",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10223",
+                "order_date": "2026-05-11",
+                "delivery_date": "2026-05-13",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1008",
+                    "name": "Fortune Sunlite Refined Sunflower Oil 1L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "145.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10227",
+                "order_date": "2026-04-26",
+                "delivery_date": "2026-04-29",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1052",
+                    "name": "Noise ColorFit Pro 4 Smartwatch",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "11",
+        "name": "Ravi Menon",
+        "email": "ravi.m@example.com",
+        "phone": "9876543220",
+        "orders": [
+            {
+                "order_id": "10001",
+                "order_date": "2026-05-14",
+                "delivery_date": "2026-05-16",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10012",
+                "order_date": "2026-03-29",
+                "delivery_date": "2026-03-31",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1083",
+                    "name": "Kent Grand RO Water Purifier",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "15500.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10021",
+                "order_date": "2026-04-11",
+                "delivery_date": "2026-04-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10037",
+                "order_date": "2026-03-17",
+                "delivery_date": "2026-03-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1013",
+                    "name": "Mother Dairy Paneer 200g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "85.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10040",
+                "order_date": "2026-06-07",
+                "delivery_date": "2026-06-14",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1070",
+                    "name": "Omron BP Monitor",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2150.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10067",
+                "order_date": "2026-05-14",
+                "delivery_date": "2026-05-21",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1025",
+                    "name": "FabIndia Men Cotton Kurta",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1299.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10136",
+                "order_date": "2026-03-05",
+                "delivery_date": "2026-03-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1020",
+                    "name": "Surf Excel Easy Wash 1kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "135.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10142",
+                "order_date": "2026-05-26",
+                "delivery_date": "2026-05-31",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1057",
+                    "name": "Apple iPhone 15 128GB",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "79900.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10159",
+                "order_date": "2026-04-16",
+                "delivery_date": "2026-04-17",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1084",
+                    "name": "Milton Thermosteel Flask 1L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "950.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10186",
+                "order_date": "2026-06-13",
+                "delivery_date": "2026-06-14",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1053",
+                    "name": "Xiaomi Power Bank 3i 20000mAh",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2199.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10191",
+                "order_date": "2026-05-14",
+                "delivery_date": "2026-05-16",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1046",
+                    "name": "Nykaa Matte Lipstick",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "399.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10207",
+                "order_date": "2026-05-30",
+                "delivery_date": "2026-06-05",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1033",
+                    "name": "Kanchipuram Art Silk Saree",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "3500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10214",
+                "order_date": "2026-02-20",
+                "delivery_date": "2026-02-26",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1072",
+                    "name": "Bajaj Rex Mixer Grinder 500W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10231",
+                "order_date": "2026-05-25",
+                "delivery_date": "2026-06-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10249",
+                "order_date": "2026-06-16",
+                "delivery_date": "2026-06-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1055",
+                    "name": "Portronics USB Hub 4-Port",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "399.0",
+                    "return_policy": "15 Days Return"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "12",
+        "name": "Pooja Agarwal",
+        "email": "pooja.a@example.com",
+        "phone": "9876543221",
+        "orders": [
+            {
+                "order_id": "10004",
+                "order_date": "2026-04-26",
+                "delivery_date": "2026-04-28",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1084",
+                    "name": "Milton Thermosteel Flask 1L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "950.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10030",
+                "order_date": "2026-04-28",
+                "delivery_date": "2026-05-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1026",
+                    "name": "Biba Women Printed Salwar Suit",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10043",
+                "order_date": "2026-04-17",
+                "delivery_date": "2026-04-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1072",
+                    "name": "Bajaj Rex Mixer Grinder 500W",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2299.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10056",
+                "order_date": "2026-03-29",
+                "delivery_date": "2026-04-05",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1044",
+                    "name": "Titan Skinn Perfume 100ml",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1495.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10064",
+                "order_date": "2026-04-27",
+                "delivery_date": "2026-05-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1043",
+                    "name": "Ruched Georgette Lehenga",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "5500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10091",
+                "order_date": "2026-04-27",
+                "delivery_date": "2026-04-30",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1028",
+                    "name": "Manyavar Wedding Sherwani",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "15000.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10104",
+                "order_date": "2026-05-29",
+                "delivery_date": "2026-06-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1015",
+                    "name": "Dabur Honey 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "230.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10117",
+                "order_date": "2026-04-17",
+                "delivery_date": "2026-04-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1061",
+                    "name": "Logitech M235 Wireless Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "799.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10121",
+                "order_date": "2026-03-22",
+                "delivery_date": "2026-03-24",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1069",
+                    "name": "Philips Trimmer QP2525",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10149",
+                "order_date": "2026-03-30",
+                "delivery_date": "2026-04-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1063",
+                    "name": "Realme Buds Wireless 2 Neo",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10166",
+                "order_date": "2026-06-13",
+                "delivery_date": "2026-06-16",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1039",
+                    "name": "Aurelia Women Dupatta",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10188",
+                "order_date": "2026-04-26",
+                "delivery_date": "2026-05-01",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1090",
+                    "name": "Mi Smart TV 43 inch 4K",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "25999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10198",
+                "order_date": "2026-03-15",
+                "delivery_date": "2026-03-16",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1054",
+                    "name": "OnePlus Nord Buds 2",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10200",
+                "order_date": "2026-04-21",
+                "delivery_date": "2026-04-27",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1085",
+                    "name": "Cello Opalware Dinner Set 33pcs",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1899.0",
+                    "return_policy": "15 Days Return"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "13",
+        "name": "Deepak Nair",
+        "email": "deepak.n@example.com",
+        "phone": "9876543222",
+        "orders": [
+            {
+                "order_id": "10005",
+                "order_date": "2026-05-29",
+                "delivery_date": "2026-06-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1001",
+                    "name": "Aashirvaad Select Sharbati Atta 5kg",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "350.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10025",
+                "order_date": "2026-04-03",
+                "delivery_date": "2026-04-06",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1068",
+                    "name": "Kindle Paperwhite 16GB",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "13999.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10028",
+                "order_date": "2026-06-02",
+                "delivery_date": "2026-06-08",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1069",
+                    "name": "Philips Trimmer QP2525",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10035",
+                "order_date": "2026-05-25",
+                "delivery_date": "2026-05-26",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1061",
+                    "name": "Logitech M235 Wireless Mouse",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "799.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10065",
+                "order_date": "2026-02-27",
+                "delivery_date": "2026-02-28",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1090",
+                    "name": "Mi Smart TV 43 inch 4K",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "25999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10077",
+                "order_date": "2026-05-08",
+                "delivery_date": "2026-05-12",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1075",
+                    "name": "Godrej 190L Single Door Refrigerator",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "15490.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10080",
+                "order_date": "2026-05-21",
+                "delivery_date": "2026-05-28",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1031",
+                    "name": "Allen Solly Polo T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10088",
+                "order_date": "2026-05-14",
+                "delivery_date": "2026-05-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1032",
+                    "name": "Nalli Silk Saree",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "8500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10096",
+                "order_date": "2026-03-03",
+                "delivery_date": "2026-03-07",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1052",
+                    "name": "Noise ColorFit Pro 4 Smartwatch",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10128",
+                "order_date": "2026-06-08",
+                "delivery_date": "2026-06-10",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1073",
+                    "name": "Havells Nicola Ceiling Fan",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2650.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10137",
+                "order_date": "2026-03-05",
+                "delivery_date": "2026-03-10",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1040",
+                    "name": "H&M Basic White T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "499.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10146",
+                "order_date": "2026-03-05",
+                "delivery_date": "2026-03-06",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1052",
+                    "name": "Noise ColorFit Pro 4 Smartwatch",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2499.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10148",
+                "order_date": "2026-04-09",
+                "delivery_date": "2026-04-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1007",
+                    "name": "Brooke Bond Red Label Tea 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "270.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10154",
+                "order_date": "2026-03-10",
+                "delivery_date": "2026-03-15",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1054",
+                    "name": "OnePlus Nord Buds 2",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10162",
+                "order_date": "2026-03-22",
+                "delivery_date": "2026-03-26",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1034",
+                    "name": "Peter England Formal Trousers",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10194",
+                "order_date": "2026-05-22",
+                "delivery_date": "2026-05-29",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1071",
+                    "name": "Prestige Svachh Pressure Cooker 3L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1450.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10196",
+                "order_date": "2026-02-28",
+                "delivery_date": "2026-03-01",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1023",
+                    "name": "Himalaya Purifying Neem Face Wash 150ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "210.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10197",
+                "order_date": "2026-06-16",
+                "delivery_date": "2026-06-18",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1031",
+                    "name": "Allen Solly Polo T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10234",
+                "order_date": "2026-03-14",
+                "delivery_date": "2026-03-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1081",
+                    "name": "Crompton Amica Water Heater 15L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "6599.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10240",
+                "order_date": "2026-05-08",
+                "delivery_date": "2026-05-13",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1074",
+                    "name": "Voltas 1.5 Ton Split AC",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "32990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10248",
+                "order_date": "2026-03-25",
+                "delivery_date": "2026-03-31",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1043",
+                    "name": "Ruched Georgette Lehenga",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "5500.0",
+                    "return_policy": "7 Days Return"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "14",
+        "name": "Meera Chatterjee",
+        "email": "meera.c@example.com",
+        "phone": "9876543223",
+        "orders": [
+            {
+                "order_id": "10039",
+                "order_date": "2026-02-28",
+                "delivery_date": "2026-03-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1010",
+                    "name": "Britannia Good Day Cookies 600g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "150.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10054",
+                "order_date": "2026-03-26",
+                "delivery_date": "2026-03-27",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1071",
+                    "name": "Prestige Svachh Pressure Cooker 3L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1450.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10060",
+                "order_date": "2026-05-31",
+                "delivery_date": "2026-06-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1048",
+                    "name": "Pepe Jeans",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2999.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10063",
+                "order_date": "2026-03-07",
+                "delivery_date": "2026-03-09",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1021",
+                    "name": "Vim Dishwash Liquid 500ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "105.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10066",
+                "order_date": "2026-03-05",
+                "delivery_date": "2026-03-12",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1059",
+                    "name": "JBL Flip 6 Bluetooth Speaker",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "11999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10093",
+                "order_date": "2026-06-18",
+                "delivery_date": "2026-06-21",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1074",
+                    "name": "Voltas 1.5 Ton Split AC",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "32990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10094",
+                "order_date": "2026-03-16",
+                "delivery_date": "2026-03-21",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1054",
+                    "name": "OnePlus Nord Buds 2",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10110",
+                "order_date": "2026-04-24",
+                "delivery_date": "2026-04-26",
+                "refund_status": "Rejected",
+                "item": {
+                    "item_id": "1059",
+                    "name": "JBL Flip 6 Bluetooth Speaker",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "11999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10112",
+                "order_date": "2026-06-07",
+                "delivery_date": "2026-06-10",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1032",
+                    "name": "Nalli Silk Saree",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "8500.0",
+                    "return_policy": "7 Days Return"
+                }
+            },
+            {
+                "order_id": "10144",
+                "order_date": "2026-03-22",
+                "delivery_date": "2026-03-26",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1021",
+                    "name": "Vim Dishwash Liquid 500ml",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "105.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10158",
+                "order_date": "2026-03-15",
+                "delivery_date": "2026-03-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1053",
+                    "name": "Xiaomi Power Bank 3i 20000mAh",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "2199.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10163",
+                "order_date": "2026-05-09",
+                "delivery_date": "2026-05-15",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1069",
+                    "name": "Philips Trimmer QP2525",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "1499.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10208",
+                "order_date": "2026-06-06",
+                "delivery_date": "2026-06-12",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1011",
+                    "name": "Patanjali Cow Ghee 1L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "650.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10216",
+                "order_date": "2026-04-28",
+                "delivery_date": "2026-04-29",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1019",
+                    "name": "MTR Rava Idli Mix 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "120.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10226",
+                "order_date": "2026-04-21",
+                "delivery_date": "2026-04-22",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1006",
+                    "name": "Maggi 2-Minute Noodles 12-Pack",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "168.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10229",
+                "order_date": "2026-04-04",
+                "delivery_date": "2026-04-08",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1014",
+                    "name": "Saffola Gold Cooking Oil 5L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "950.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10230",
+                "order_date": "2026-05-21",
+                "delivery_date": "2026-05-24",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1040",
+                    "name": "H&M Basic White T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "499.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10232",
+                "order_date": "2026-05-19",
+                "delivery_date": "2026-05-20",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1083",
+                    "name": "Kent Grand RO Water Purifier",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "15500.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10238",
+                "order_date": "2026-02-28",
+                "delivery_date": "2026-03-07",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1037",
+                    "name": "Bata Women Sandals",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "899.0",
+                    "return_policy": "15 Days Return"
+                }
+            }
+        ]
+    },
+    {
+        "customer_id": "15",
+        "name": "Arjun Kapoor",
+        "email": "arjun.k@example.com",
+        "phone": "9876543224",
+        "orders": [
+            {
+                "order_id": "10008",
+                "order_date": "2026-05-12",
+                "delivery_date": "2026-05-19",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1049",
+                    "name": "Womens Cotton Nightdress",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "699.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10026",
+                "order_date": "2026-03-04",
+                "delivery_date": "2026-03-11",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1047",
+                    "name": "Bata Men Casual Shoes",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1799.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10033",
+                "order_date": "2026-06-09",
+                "delivery_date": "2026-06-14",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1005",
+                    "name": "Haldiram Bhujia Sev 400g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "110.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10049",
+                "order_date": "2026-03-19",
+                "delivery_date": "2026-03-22",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1034",
+                    "name": "Peter England Formal Trousers",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "1499.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10055",
+                "order_date": "2026-05-30",
+                "delivery_date": "2026-06-02",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1014",
+                    "name": "Saffola Gold Cooking Oil 5L",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "950.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10082",
+                "order_date": "2026-03-19",
+                "delivery_date": "2026-03-25",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1081",
+                    "name": "Crompton Amica Water Heater 15L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "6599.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10105",
+                "order_date": "2026-02-22",
+                "delivery_date": "2026-02-26",
+                "refund_status": "Processed",
+                "item": {
+                    "item_id": "1040",
+                    "name": "H&M Basic White T-Shirt",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "499.0",
+                    "return_policy": "30 Days Return"
+                }
+            },
+            {
+                "order_id": "10115",
+                "order_date": "2026-05-14",
+                "delivery_date": "2026-05-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1077",
+                    "name": "LG 8 Kg Fully Automatic Washing Machine",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "21990.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10130",
+                "order_date": "2026-04-04",
+                "delivery_date": "2026-04-08",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1057",
+                    "name": "Apple iPhone 15 128GB",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "79900.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10157",
+                "order_date": "2026-03-21",
+                "delivery_date": "2026-03-23",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1042",
+                    "name": "Global Desi Maxi Dress",
+                    "description": "Clothing product",
+                    "category": "Clothing",
+                    "base_price": "2199.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10161",
+                "order_date": "2026-05-31",
+                "delivery_date": "2026-06-04",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1059",
+                    "name": "JBL Flip 6 Bluetooth Speaker",
+                    "description": "Electronics product",
+                    "category": "Electronics",
+                    "base_price": "11999.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10177",
+                "order_date": "2026-05-10",
+                "delivery_date": "2026-05-17",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1081",
+                    "name": "Crompton Amica Water Heater 15L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "6599.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            },
+            {
+                "order_id": "10205",
+                "order_date": "2026-05-22",
+                "delivery_date": "2026-05-26",
+                "refund_status": "Requested",
+                "item": {
+                    "item_id": "1071",
+                    "name": "Prestige Svachh Pressure Cooker 3L",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "1450.0",
+                    "return_policy": "15 Days Return"
+                }
+            },
+            {
+                "order_id": "10219",
+                "order_date": "2026-03-14",
+                "delivery_date": "2026-03-19",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1007",
+                    "name": "Brooke Bond Red Label Tea 500g",
+                    "description": "Groceries product",
+                    "category": "Groceries",
+                    "base_price": "270.0",
+                    "return_policy": "Non-Returnable"
+                }
+            },
+            {
+                "order_id": "10235",
+                "order_date": "2026-03-31",
+                "delivery_date": "2026-04-03",
+                "refund_status": "None",
+                "item": {
+                    "item_id": "1073",
+                    "name": "Havells Nicola Ceiling Fan",
+                    "description": "Home Appliances product",
+                    "category": "Home Appliances",
+                    "base_price": "2650.0",
+                    "return_policy": "7 Days Replacement"
+                }
+            }
+        ]
+    }
+]
