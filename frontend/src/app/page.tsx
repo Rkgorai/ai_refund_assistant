@@ -23,6 +23,7 @@ export default function Home() {
   ]);
   const [input, setInput] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
   const [agentState, setAgentState] = useState<AgentState>({
     intent: "None",
     email: null,
@@ -36,9 +37,25 @@ export default function Home() {
     // Generate a unique session ID for this browser tab
     const sessionId = Math.random().toString(36).substring(7);
     
-    // Dynamically get the host so it works across the local network (e.g. from a phone)
-    const host = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
-    const ws = new WebSocket(`ws://${host}:8000/ws/${sessionId}`);
+    // We proxy through Next.js to bypass all browser security blocks!
+    // Connect to the exact same host and port as the webpage (e.g. 0.0.0.0:3000)
+    const host = typeof window !== 'undefined' ? window.location.host : 'localhost:3000';
+    const ws = new WebSocket(`ws://${host}/ws/${sessionId}`);
+    
+    ws.onopen = () => {
+      setIsConnected(true);
+    };
+
+    ws.onclose = () => {
+      setIsConnected(false);
+      setIsProcessing(false);
+    };
+
+    ws.onerror = (error) => {
+      console.error("WebSocket Error:", error);
+      setIsConnected(false);
+      setIsProcessing(false);
+    };
     
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
@@ -108,8 +125,8 @@ export default function Home() {
             placeholder="Type your message to the agent..."
             disabled={isProcessing}
           />
-          <button type="submit" disabled={isProcessing || !input.trim()}>
-            Send
+          <button type="submit" disabled={isProcessing || !input.trim() || !isConnected}>
+            {isConnected ? "Send" : "Disconnected"}
           </button>
         </form>
       </div>
