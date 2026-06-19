@@ -15,9 +15,9 @@ class AgentState(TypedDict):
 
 # --- 2. Intent Classification ---
 class IntentClassification(BaseModel):
-    intent: str = Field(description="The classified intent: 'policy_query', 'refund_request', 'greeting', or 'off_topic'")
-    email: Optional[str] = Field(description="The customer's email address if mentioned in the message")
-    order_id: Optional[str] = Field(description="The order ID if mentioned in the message (e.g., numbers)")
+    intent: str = Field(description="The classified intent.")
+    customer_email: Optional[str] = Field(None, description="The customer's email if provided.")
+    current_order_id: Optional[str] = Field(None, description="The order ID, item name, or product details if provided by the user.")
 
 def classify_intent_node(state: AgentState):
     """Node that uses a fast LLM to classify the user's intent and extract entities."""
@@ -54,10 +54,10 @@ If they are not provided, return null for them."""
     
     # Only update email/order if they were explicitly found in this message
     # LangGraph will automatically merge them into the state if they exist.
-    if result.email:
-        updates["customer_email"] = result.email
-    if result.order_id:
-        updates["current_order_id"] = str(result.order_id)
+    if result.customer_email:
+        updates["customer_email"] = result.customer_email
+    if result.current_order_id:
+        updates["current_order_id"] = str(result.current_order_id)
         
     print(f"[DEBUG - Guardrails] Intent classified as: {result.intent}")
     return updates

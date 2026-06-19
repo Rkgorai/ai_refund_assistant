@@ -20,18 +20,8 @@ from src.agent.tools import search_return_policy, get_customer_orders, file_refu
 
 # --- Node: Ask for Info ---
 def ask_for_info(state: AgentState):
-    """Prompts the user for missing information required to process a refund."""
-    email = state.get("customer_email")
-    order_id = state.get("current_order_id")
-    
-    if not email:
-        msg = "I can certainly help you with a refund. Could you please provide your email address first?"
-    elif not order_id:
-        msg = "Thank you. Could you please provide the Order ID for the item you wish to return?"
-    else:
-        msg = "Please provide more details."
-        
-    return {"messages": [AIMessage(content=msg)]}
+    """Fallback node if essential information is missing."""
+    return {"messages": [AIMessage(content="I can certainly help you with your orders or a refund. Could you please provide your email address first?")]}
 
 # --- Node: Policy RAG ---
 def policy_rag_node(state: AgentState):
@@ -60,12 +50,19 @@ def refund_processor_node(state: AgentState):
     order_id = state.get("current_order_id", "Not provided yet")
     
     system_msg = f"""You are an AI Refund Assistant processing a refund request.
-You have the following verified information:
+You have the following extracted information:
 Customer Email: {email}
-Order ID Context: {order_id}
+Order Context provided by user (if any): {order_id}
 
-Use 'get_customer_orders' to check their eligibility and 'file_refund_ticket' to submit the request if appropriate.
-Explain the status clearly to the user."""
+STRICT WORKFLOW TO FOLLOW:
+1. ALWAYS call 'get_customer_orders' first using the email to get the list of their past orders.
+2. If the user hasn't specified which order they mean, list their orders to them and ask which one they want to return.
+3. If the user has specified an order (by ID, item ID, or item name), match it with the orders retrieved from the database.
+4. BEFORE filing a ticket, you MUST display the matched order details to the user and explicitly ask for confirmation (e.g., "You selected Order 10002 for Laptop delivered on 2024-01-05. Is this correct?").
+5. If the user says NO, ask them to select again.
+6. If the user says YES, ask for the issue description (if not already provided).
+7. Once confirmed and the issue is described, call 'file_refund_ticket' to submit the request.
+"""
 
     agent = create_react_agent(llm, tools=tools, prompt=system_msg)
     response = agent.invoke({"messages": state["messages"]})
@@ -81,15 +78,14 @@ def route_intent(state: AgentState):
     elif intent == "greeting":
         return "greeting"
     elif intent == "policy_query":
-        return "policy"
+        return "policy_rag_node"
     elif intent == "refund_request":
-        # State-driven guardrail for missing info
-        if not state.get("customer_email") or not state.get("current_order_id"):
+        # We only strictly need the email to proceed to the processor.
+        # The ReAct agent will handle listing orders and getting confirmation natively.
+        if not state.get("customer_email"):
             return "ask_for_info"
-        else:
-            return "process_refund"
-    
-    return "off_topic" # Fallback
+        return "refund_processor_node"
+    return "off_topic_responder" # Fallback
 
 # --- Build Graph ---
 def build_agent_graph():
@@ -113,9 +109,10 @@ def build_agent_graph():
         {
             "off_topic": "off_topic_responder",
             "greeting": "greeting_node",
-            "policy": "policy_rag_node",
+            "policy_rag_node": "policy_rag_node",
             "ask_for_info": "ask_for_info",
-            "process_refund": "refund_processor_node"
+            "refund_processor_node": "refund_processor_node",
+            "off_topic_responder": "off_topic_responder"
         }
     )
     

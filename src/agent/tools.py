@@ -84,12 +84,41 @@ def file_refund_ticket(email: str, order_id: str, issue_description: str) -> str
             conn.close()
             return "Error: Customer not found."
             
-        # Verify order
-        cursor.execute("SELECT order_id FROM orders WHERE order_id = ? AND customer_id = ?", (order_id_int, customer[0]))
+        # Verify order and check policy
+        cursor.execute('''
+            SELECT o.order_id, o.delivery_date, i.return_policy 
+            FROM orders o
+            JOIN items i ON o.item_id = i.item_id
+            WHERE o.order_id = ? AND o.customer_id = ?
+        ''', (order_id_int, customer[0]))
         order = cursor.fetchone()
         if not order:
             conn.close()
             return "Error: Order not found or does not belong to this customer."
+            
+        delivery_date_str = order[1]
+        return_policy = order[2]
+        
+        # Strict Server-Side Validation
+        if return_policy == 'Non-Returnable':
+            conn.close()
+            return "Error: This item is Non-Returnable."
+            
+        import re
+        match = re.search(r'(\d+)', return_policy)
+        if match:
+            days = int(match.group(1))
+            try:
+                # Assuming delivery_date is in 'YYYY-MM-DD' format
+                delivery_date = datetime.datetime.strptime(delivery_date_str, "%Y-%m-%d")
+                expiration_date = delivery_date + datetime.timedelta(days=days)
+                current_date = datetime.datetime.now()
+                
+                if current_date > expiration_date:
+                    conn.close()
+                    return f"Error: The return window expired on {expiration_date.strftime('%Y-%m-%d')}. The item was delivered on {delivery_date_str} and the policy is '{return_policy}'."
+            except ValueError:
+                pass # Fallback if date parsing fails
             
         # Insert ticket
         now = datetime.datetime.now().isoformat()
