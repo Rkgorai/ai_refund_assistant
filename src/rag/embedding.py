@@ -26,7 +26,7 @@ class EmbeddingPipeline:
             chunk_size=self.chunk_size,
             chunk_overlap=self.chunk_overlap,
             length_function=len,
-            separators=["\n\n", "\n", " ", ""]
+            separators=["\n\n", "\n", ". ", "? ", "! ", " ", ""]
         )
         chunks = splitter.split_documents(documents)
         print(f"[INFO] Split {len(documents)} documents into {len(chunks)} chunks.")
@@ -35,7 +35,7 @@ class EmbeddingPipeline:
     def embed_chunks(self, chunks: List[Any]) -> np.ndarray:
         texts = [chunk.page_content for chunk in chunks]
         print(f"[INFO] Generating embeddings for {len(texts)} chunks...")
-        embeddings = self.model.encode(texts, show_progress_bar=(os.environ.get("BHARAT_LAW_VERBOSE") == "1"))
+        embeddings = self.model.encode(texts, show_progress_bar=True)
         print(f"[INFO] Embeddings shape: {embeddings.shape}")
         return embeddings
 

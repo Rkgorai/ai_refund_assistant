@@ -1,4 +1,5 @@
 import os
+import re
 import builtins
 from pathlib import Path
 from typing import List, Any
@@ -107,6 +108,20 @@ def load_all_documents(data_dir: str) -> List[Any]:
             documents.extend(loaded)
         except Exception as e:
             print(f"[ERROR] Failed to load JSON {json_file}: {e}")
+
+    # Clean the text in all loaded documents before returning
+    for doc in documents:
+        # 1. Replace all newlines with a single space
+        cleaned_text = doc.page_content.replace('\n', ' ')
+        
+        # 2. Remove any weird characters like \t or \r
+        cleaned_text = cleaned_text.replace('\t', ' ').replace('\r', '')
+        
+        # 3. Replace multiple consecutive spaces with a single space
+        cleaned_text = re.sub(r'\s+', ' ', cleaned_text)
+        
+        # 4. Strip leading/trailing whitespaces
+        doc.page_content = cleaned_text.strip()
 
     print(f"[DEBUG] Total loaded documents: {len(documents)}")
     return documents
