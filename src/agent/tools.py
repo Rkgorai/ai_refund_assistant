@@ -51,6 +51,7 @@ def get_customer_orders(email: str) -> str:
             FROM orders o
             JOIN items i ON o.item_id = i.item_id
             WHERE o.customer_id = ?
+            ORDER BY o.delivery_date DESC
         ''', (customer['customer_id'],))
         
         orders = cursor.fetchall()
@@ -59,9 +60,12 @@ def get_customer_orders(email: str) -> str:
         if not orders:
             return "No orders found for this customer."
             
-        result = "Orders:\n"
+        result = "Orders:\n\n"
+        result += "| Order ID | Item Name | Delivered | Status | Policy |\n"
+        result += "|---|---|---|---|---|\n"
         for o in orders:
-            result += f"- Order ID {o['order_id']}: {o['name']} | Delivered: {o['delivery_date']} | Status: {o['refund_status']} | Item Policy: {o['return_policy']}\n"
+            status = o['refund_status'] if o['refund_status'] else 'None'
+            result += f"| {o['order_id']} | {o['name']} | {o['delivery_date']} | {status} | {o['return_policy']} |\n"
         return result
     except Exception as e:
         return f"Database error: {e}"
