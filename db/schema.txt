@@ -23,7 +23,7 @@
 - `delivery_date` (Important: The LangGraph agent will use this at runtime to calculate if the return window has expired)
 - `total_amount`
 - `payment_method` (Credit Card, UPI, Store Credit)
-- `refund_status` ('None', 'Requested', 'Processed', 'Rejected' - This tracks actual actions taken, rather than calculated eligibility)
+- `refund_status` ('None', 'Return Requested', 'Replacement Requested', etc. - This tracks actual actions taken, rather than calculated eligibility)
 
 4. `support_tickets` (Customer Service Logs)
 - `ticket_id` (Primary Key)
@@ -32,3 +32,4 @@
 - `issue_description`
 - `status` ('Open', 'Closed')
 - `created_at`
+- `ticket_type` ('Return', 'Replacement')

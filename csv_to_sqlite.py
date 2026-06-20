@@ -71,13 +71,14 @@ def load_csv_to_sqlite():
         issue_description TEXT,
         status TEXT,
         created_at TEXT,
+        ticket_type TEXT,
         FOREIGN KEY (customer_id) REFERENCES customers (customer_id),
         FOREIGN KEY (order_id) REFERENCES orders (order_id)
     )''')
     with open(os.path.join(csv_dir, 'support_tickets.csv'), 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
         next(reader)
-        cursor.executemany('INSERT INTO support_tickets VALUES (?, ?, ?, ?, ?, ?)', reader)
+        cursor.executemany('INSERT INTO support_tickets VALUES (?, ?, ?, ?, ?, ?, ?)', reader)
 
     conn.commit()
     conn.close()

@@ -126,17 +126,19 @@ def generate_mock_data():
         
         # refund_status logic: mostly 'None'. Some 'Requested', 'Processed', 'Rejected'
         # We don't calculate eligibility here, just the explicit action the user/system took.
-        refund_status = random.choices(['None', 'Requested', 'Processed', 'Rejected'], weights=[85, 5, 5, 5])[0]
+        refund_action = random.choices(['None', 'Requested', 'Processed', 'Rejected'], weights=[85, 5, 5, 5])[0]
+        ticket_type = 'Replacement' if 'Replacement' in i_policy else 'Return'
+        refund_status = f"{ticket_type} {refund_action}" if refund_action != 'None' else 'None'
         
         # Generate tickets based on hard status
-        if refund_status == 'Requested':
-            tickets.append((ticket_id, customer_id, order_id, f'The {item[1]} is defective or unwanted. Please refund.', 'Open', (today - timedelta(days=random.randint(0, 2))).isoformat()))
+        if refund_action == 'Requested':
+            tickets.append((ticket_id, customer_id, order_id, f'The {item[1]} is defective or unwanted. Please process my request.', 'Open', (today - timedelta(days=random.randint(0, 2))).isoformat(), ticket_type))
             ticket_id += 1
-        elif refund_status == 'Processed':
-            tickets.append((ticket_id, customer_id, order_id, f'Returned {item[1]} successfully.', 'Closed', (today - timedelta(days=random.randint(5, 10))).isoformat()))
+        elif refund_action == 'Processed':
+            tickets.append((ticket_id, customer_id, order_id, f'Returned/Replaced {item[1]} successfully.', 'Closed', (today - timedelta(days=random.randint(5, 10))).isoformat(), ticket_type))
             ticket_id += 1
-        elif refund_status == 'Rejected':
-            tickets.append((ticket_id, customer_id, order_id, f'Why was my return request for {item[1]} rejected?', 'Closed', (today - timedelta(days=random.randint(1, 20))).isoformat()))
+        elif refund_action == 'Rejected':
+            tickets.append((ticket_id, customer_id, order_id, f'Why was my request for {item[1]} rejected?', 'Closed', (today - timedelta(days=random.randint(1, 20))).isoformat(), ticket_type))
             ticket_id += 1
 
         orders.append((order_id, customer_id, i_id, quantity, order_date.isoformat(), delivery_date.isoformat(), total_amount, payment, refund_status))
@@ -149,7 +151,7 @@ def generate_mock_data():
     # 4. Write Support Tickets
     with open(os.path.join(csv_dir, 'support_tickets.csv'), 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['ticket_id', 'customer_id', 'order_id', 'issue_description', 'status', 'created_at'])
+        writer.writerow(['ticket_id', 'customer_id', 'order_id', 'issue_description', 'status', 'created_at', 'ticket_type'])
         writer.writerows(tickets)
         
     print(f"Successfully generated CSV files in {os.path.abspath(csv_dir)}")

@@ -13,6 +13,16 @@ from src.rag.vectorstore import FaissVectorStore
 
 DB_PATH = "db/crm.db"
 
+from pydantic import BaseModel, Field
+
+class RefundTicketSchema(BaseModel):
+    email: str = Field(description="The customer's email address")
+    order_id: str = Field(description="The numeric ID of the order")
+    issue_description: str = Field(description="The reason for the return or refund")
+
+class CustomerOrdersSchema(BaseModel):
+    email: str = Field(description="The customer's email address")
+
 @tool
 def search_return_policy(query: str) -> str:
     """
@@ -29,7 +39,7 @@ def search_return_policy(query: str) -> str:
     except Exception as e:
         return f"Error querying policy database: {e}"
 
-@tool
+@tool(args_schema=CustomerOrdersSchema)
 def get_customer_orders(email: str) -> str:
     """
     Retrieve all past orders for a customer using their email address.
@@ -51,6 +61,7 @@ def get_customer_orders(email: str) -> str:
             FROM orders o
             JOIN items i ON o.item_id = i.item_id
             WHERE o.customer_id = ?
+            ORDER BY o.delivery_date DESC
         ''', (customer['customer_id'],))
         
         orders = cursor.fetchall()
@@ -59,21 +70,28 @@ def get_customer_orders(email: str) -> str:
         if not orders:
             return "No orders found for this customer."
             
-        result = "Orders:\n"
+        result = "Orders:\n\n"
+        result += "| Order ID | Item Name | Delivered | Status | Policy |\n"
+        result += "|---|---|---|---|---|\n"
         for o in orders:
-            result += f"- Order ID {o['order_id']}: {o['name']} | Delivered: {o['delivery_date']} | Status: {o['refund_status']} | Item Policy: {o['return_policy']}\n"
+            status = o['refund_status'] if o['refund_status'] else 'None'
+            result += f"| {o['order_id']} | {o['name']} | {o['delivery_date']} | {status} | {o['return_policy']} |\n"
         return result
     except Exception as e:
         return f"Database error: {e}"
 
-@tool
+@tool(args_schema=RefundTicketSchema)
 def file_refund_ticket(email: str, order_id: str, issue_description: str) -> str:
     """
     File a formal support ticket to process a refund or replacement for a customer's order.
     Only use this if the item is eligible for return/replacement based on the policy and delivery date.
     """
     try:
-        order_id_int = int(order_id)
+        try:
+            order_id_int = int(order_id)
+        except ValueError:
+            return f"Error: '{order_id}' is not a valid numerical Order ID."
+            
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
@@ -86,7 +104,7 @@ def file_refund_ticket(email: str, order_id: str, issue_description: str) -> str
             
         # Verify order and check policy
         cursor.execute('''
-            SELECT o.order_id, o.delivery_date, i.return_policy 
+            SELECT o.order_id, o.delivery_date, i.return_policy, o.refund_status
             FROM orders o
             JOIN items i ON o.item_id = i.item_id
             WHERE o.order_id = ? AND o.customer_id = ?
@@ -98,9 +116,23 @@ def file_refund_ticket(email: str, order_id: str, issue_description: str) -> str
             
         delivery_date_str = order[1]
         return_policy = order[2]
+        refund_status = order[3]
+        
+        if refund_status and refund_status != 'None':
+            conn.close()
+            return f"Error: Order {order_id_int} already has an active request (Status: {refund_status}). Multiple tickets for the same order are not allowed."
         
         # Strict Server-Side Validation
         if return_policy == 'Non-Returnable':
+            try:
+                delivery_date = datetime.datetime.strptime(delivery_date_str, "%Y-%m-%d")
+                if (datetime.datetime.now() - delivery_date).days <= 7:
+                    issue_lower = issue_description.lower()
+                    if any(word in issue_lower for word in ["wrong", "different", "incorrect", "not what i ordered", "another"]):
+                        conn.close()
+                        return "Error: If you received a different product than ordered, please contact customer support via complaints@example.com."
+            except ValueError:
+                pass
             conn.close()
             return "Error: This item is Non-Returnable."
             
@@ -120,19 +152,25 @@ def file_refund_ticket(email: str, order_id: str, issue_description: str) -> str
             except ValueError:
                 pass # Fallback if date parsing fails
             
-        # Insert ticket
+        # Determine ticket type based on policy
+        ticket_type = "Replacement" if "Replacement" in return_policy else "Return"
+        
+        # Insert ticket with new ticket_type column
         now = datetime.datetime.now().isoformat()
         cursor.execute('''
-            INSERT INTO support_tickets (customer_id, order_id, issue_description, status, created_at)
-            VALUES (?, ?, ?, 'Open', ?)
-        ''', (customer[0], order_id_int, issue_description, now))
+            INSERT INTO support_tickets (customer_id, order_id, issue_description, status, created_at, ticket_type)
+            VALUES (?, ?, ?, 'Open', ?, ?)
+        ''', (customer[0], order_id_int, issue_description, now, ticket_type))
         
-        # Update order status to 'Requested'
-        cursor.execute("UPDATE orders SET refund_status = 'Requested' WHERE order_id = ?", (order_id_int,))
+        # Update order status to be more explicit ('Return Requested' or 'Replacement Requested')
+        cursor.execute("UPDATE orders SET refund_status = ? WHERE order_id = ?", (f"{ticket_type} Requested", order_id_int))
         
         conn.commit()
         conn.close()
         
-        return f"Successfully filed support ticket for Order {order_id_int}."
+        if "Replacement" in return_policy:
+            return f"Successfully filed support ticket for Order {order_id_int}. Your replacement is processed and a new item will be shipped to you shortly after the original item is picked up."
+        else:
+            return f"Successfully filed support ticket for Order {order_id_int}. Your return request is done and will be refunded to your original payment method after pickup."
     except Exception as e:
         return f"Database error: {e}"
