@@ -58,18 +58,20 @@ export default function Home() {
   
   const wsRef = useRef<WebSocket | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [sessionId, setSessionId] = useState<string>("");
 
   useEffect(() => {
     // Session Persistence logic (Task 2)
-    let sessionId = localStorage.getItem("refund_agent_session");
-    if (!sessionId) {
-      sessionId = Math.random().toString(36).substring(7);
-      localStorage.setItem("refund_agent_session", sessionId);
+    let sid = localStorage.getItem("refund_agent_session");
+    if (!sid) {
+      sid = Math.random().toString(36).substring(7);
+      localStorage.setItem("refund_agent_session", sid);
     }
+    setSessionId(sid);
     
     // We proxy through Next.js to bypass all browser security blocks!
     const host = typeof window !== 'undefined' ? window.location.host : 'localhost:3000';
-    const ws = new WebSocket(`ws://${host}/ws/${sessionId}`);
+    const ws = new WebSocket(`ws://${host}/ws/${sid}`);
     
     ws.onopen = () => {
       setIsConnected(true);
@@ -164,6 +166,17 @@ export default function Home() {
     }
   };
 
+  const getIntentBadge = (intent: string) => {
+    if (!intent || intent === 'None') return <span className="badge none">Waiting...</span>;
+    switch(intent) {
+      case 'refund_request': return <span className="badge success">Refund Request</span>;
+      case 'policy_query': return <span className="badge info">Policy Query</span>;
+      case 'greeting': return <span className="badge default">Greeting</span>;
+      case 'off_topic': return <span className="badge warning">Off Topic</span>;
+      default: return <span className="badge default">{intent}</span>;
+    }
+  };
+
   return (
     <div className="container">
       {/* Left Chat Section */}
@@ -205,22 +218,31 @@ export default function Home() {
 
       {/* Right Dashboard Section */}
       <div className="dashboard-section">
-        <div className="dashboard-header">
-          <div className={`status-dot ${isProcessing ? 'processing' : ''}`}></div>
-          System State Dashboard
+        <div className="dashboard-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div className={`status-dot ${isProcessing ? 'processing' : ''}`}></div>
+            <span className="gradient-text">System State Dashboard</span>
+          </div>
+          {sessionId && <span style={{ fontSize: '0.75rem', color: '#8b949e', fontFamily: 'monospace', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: '4px' }}>Session: {sessionId}</span>}
+        </div>
+        
+        <div style={{ fontSize: '0.85rem', color: isProcessing ? 'var(--accent-color)' : '#2ea043', marginTop: '-1rem', fontWeight: 600, letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: isProcessing ? 'var(--accent-color)' : '#2ea043', animation: 'pulse 1.5s infinite' }}></div>
+          AGENT STATUS: {isProcessing ? 'PROCESSING...' : 'IDLE'}
         </div>
         
         <div className="state-card">
           <div className="state-row">
             <span className="state-label">Extracted Intent</span>
-            <span className={`state-value ${!agentState.intent || agentState.intent === 'None' ? 'empty' : ''}`}>
-              {agentState.intent || "Waiting..."}
-            </span>
+            <div className="state-value" style={{ marginTop: '0.3rem' }}>
+              {getIntentBadge(agentState.intent)}
+            </div>
           </div>
           
           <div className="state-row">
             <span className="state-label">Verified Email</span>
-            <span className={`state-value ${!agentState.email ? 'empty' : ''}`}>
+            <span className={`state-value ${!agentState.email ? 'empty' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              {!agentState.email && agentState.order_id && <span style={{ color: '#ff7b72', fontSize: '1.2rem', lineHeight: 1 }}>⚠</span>}
               {agentState.email || "Missing"}
             </span>
           </div>
@@ -233,44 +255,49 @@ export default function Home() {
           </div>
           
           {/* Action Buttons */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginTop: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', marginTop: '0.5rem' }}>
             <button 
-              className="action-btn"
+              className="action-btn-small"
               onClick={() => wsRef.current?.send(JSON.stringify({ type: "fetch_orders" }))}
               disabled={!agentState.email || !isConnected}
             >
-              View My Orders
+              View Orders
             </button>
             <button 
-              className="action-btn"
+              className="action-btn-small"
               onClick={fetchTickets}
               disabled={!agentState.email || !isConnected}
             >
-              View My Support Tickets
+              Support Tickets
             </button>
-            <div style={{ display: 'flex', gap: '0.8rem' }}>
-              <button 
-                className="action-btn secondary"
-                onClick={exportChat}
-                style={{ backgroundColor: 'transparent', border: '1px solid rgba(139, 148, 158, 0.5)', color: '#8b949e', flex: 1, fontSize: '0.85rem' }}
-              >
-                Export Chat
-              </button>
-              <button 
-                className="action-btn secondary"
-                onClick={clearChat}
-                style={{ backgroundColor: 'transparent', border: '1px solid rgba(255, 123, 114, 0.5)', color: '#ff7b72', flex: 1, fontSize: '0.85rem' }}
-              >
-                Clear Chat
-              </button>
-            </div>
+            <button 
+              className="action-btn-small secondary"
+              onClick={exportChat}
+            >
+              Export Chat
+            </button>
+            <button 
+              className="action-btn-small danger"
+              onClick={clearChat}
+            >
+              Clear Chat
+            </button>
           </div>
         </div>
         
-        <div className="state-card" style={{ marginTop: 'auto', border: '1px solid rgba(88, 166, 255, 0.3)' }}>
+        <div className="state-card">
+          <div className="dashboard-subheader" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Quick Debug Prompts</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <button className="pill-btn" onClick={() => setInput("What is the return policy for clothes?")}>Policy Check</button>
+            <button className="pill-btn" onClick={() => setInput("My email is rahul@example.com")}>Set Email</button>
+            <button className="pill-btn" onClick={() => setInput("I want to return my last order")}>Trigger Return</button>
+          </div>
+        </div>
+
+        <div className="state-card" style={{ marginTop: 'auto', background: 'linear-gradient(145deg, rgba(88, 166, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%)', border: '1px solid rgba(88, 166, 255, 0.3)' }}>
           <div className="state-row">
             <span className="state-label" style={{ color: '#58a6ff' }}>LangGraph Engine Live</span>
-            <span className="state-value" style={{ fontSize: '0.9rem', color: '#c9d1d9', marginTop: '0.5rem', lineHeight: '1.4' }}>
+            <span className="state-value" style={{ fontSize: '0.9rem', color: '#c9d1d9', marginTop: '0.5rem', lineHeight: '1.5' }}>
               All interactions are routed securely through the Python State Machine. Sessions persist automatically on reload.
             </span>
           </div>

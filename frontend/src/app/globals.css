@@ -129,12 +129,16 @@ body {
 /* Dashboard Section */
 .dashboard-section {
   flex: 4;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   background: var(--panel-bg);
-  backdrop-filter: blur(20px);
+  background-image: radial-gradient(circle at right top, rgba(88, 166, 255, 0.08) 0%, transparent 40%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.8rem;
+  border-left: 1px solid rgba(255,255,255,0.05);
+  overflow-y: auto;
 }
 
 .dashboard-header {
@@ -162,13 +166,21 @@ body {
 }
 
 .state-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.state-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .state-row {
@@ -255,29 +267,59 @@ body {
   background: var(--text-secondary);
 }
 
-/* Ticket Modal & Buttons */
-.action-btn {
-  padding: 0.8rem 1.5rem;
+/* Smaller Grid Action Buttons */
+.action-btn-small {
+  padding: 0.6rem 0.8rem;
   border-radius: 8px;
-  background-color: rgba(88, 166, 255, 0.1);
+  background: linear-gradient(180deg, rgba(88, 166, 255, 0.15) 0%, rgba(88, 166, 255, 0.05) 100%);
   color: var(--accent-color);
-  font-weight: 600;
-  border: 1px solid var(--accent-color);
+  font-weight: 500;
+  font-size: 0.85rem;
+  border: 1px solid rgba(88, 166, 255, 0.3);
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.3px;
 }
 
-.action-btn:hover:not(:disabled) {
-  background-color: rgba(88, 166, 255, 0.2);
-  box-shadow: 0 0 10px var(--accent-glow);
+.action-btn-small:hover:not(:disabled) {
+  background: rgba(88, 166, 255, 0.25);
+  box-shadow: 0 0 12px var(--accent-glow);
+  transform: translateY(-1px);
 }
 
-.action-btn:disabled {
-  opacity: 0.5;
+.action-btn-small:disabled {
+  opacity: 0.4;
   cursor: not-allowed;
-  border-color: var(--text-secondary);
+  border-color: rgba(139, 148, 158, 0.3);
   color: var(--text-secondary);
+  background: transparent;
+  box-shadow: none;
+}
+
+.action-btn-small.secondary {
+  background: transparent;
+  border-color: rgba(139, 148, 158, 0.4);
+  color: #8b949e;
+}
+.action-btn-small.secondary:hover {
+  border-color: #c9d1d9;
+  color: #c9d1d9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.action-btn-small.danger {
+  background: transparent;
+  border-color: rgba(255, 123, 114, 0.4);
+  color: #ff7b72;
+}
+.action-btn-small.danger:hover {
+  background: rgba(255, 123, 114, 0.1);
+  border-color: #ff7b72;
+  box-shadow: 0 0 10px rgba(255, 123, 114, 0.2);
 }
 
 .modal-overlay {
@@ -374,6 +416,59 @@ body {
 .badge.closed {
   background: rgba(46, 160, 67, 0.2);
   color: #2ea043;
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(90deg, #fff 0%, #a5d6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Quick Prompt Pills */
+.pill-btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--accent-color);
+  border-color: rgba(88, 166, 255, 0.4);
+}
+
+.badge.success {
+  background: rgba(46, 160, 67, 0.2);
+  color: #2ea043;
+  border: 1px solid rgba(46, 160, 67, 0.4);
+}
+.badge.info {
+  background: rgba(88, 166, 255, 0.2);
+  color: #58a6ff;
+  border: 1px solid rgba(88, 166, 255, 0.4);
+}
+.badge.warning {
+  background: rgba(255, 123, 114, 0.2);
+  color: #ff7b72;
+  border: 1px solid rgba(255, 123, 114, 0.4);
+}
+.badge.default {
+  background: rgba(139, 148, 158, 0.2);
+  color: #8b949e;
+  border: 1px solid rgba(139, 148, 158, 0.4);
+}
+.badge.none {
+  background: transparent;
+  color: #8b949e;
+  border: 1px dashed rgba(139, 148, 158, 0.5);
 }
 
 /* Mobile Responsiveness */
