@@ -43,6 +43,24 @@ async def websocket_endpoint(websocket: WebSocket, session_id: str):
             "customer_email": None,
             "current_order_id": None
         }
+    else:
+        # Task 2: Persistent Session Sync
+        # If the user refreshes, restore their exact chat history and dashboard state!
+        history = []
+        for m in sessions[session_id]["messages"]:
+            if hasattr(m, "content"):
+                role = "user" if isinstance(m, HumanMessage) else "ai"
+                history.append({"role": role, "content": m.content})
+        
+        await websocket.send_json({"type": "sync_history", "history": history})
+        await websocket.send_json({
+            "type": "state_update",
+            "state": {
+                "intent": sessions[session_id].get("intent", ""),
+                "email": sessions[session_id].get("customer_email"),
+                "order_id": sessions[session_id].get("current_order_id")
+            }
+        })
         
     config = {"configurable": {"thread_id": session_id}}
     
@@ -50,6 +68,67 @@ async def websocket_endpoint(websocket: WebSocket, session_id: str):
         while True:
             # Wait for user input from the Next.js chat interface
             data = await websocket.receive_text()
+            
+            # Task 1: Check if the frontend is sending a structured JSON command instead of a chat message
+            try:
+                payload = json.loads(data)
+                if not isinstance(payload, dict):
+                    raise json.JSONDecodeError("Payload is not a dictionary", data, 0)
+                    
+                if payload.get("type") == "fetch_tickets":
+                    import sqlite3
+                    email = sessions[session_id].get("customer_email")
+                    if email:
+                        conn = sqlite3.connect("db/crm.db")
+                        conn.row_factory = sqlite3.Row
+                        cursor = conn.cursor()
+                        cursor.execute('''
+                            SELECT t.ticket_id, t.order_id, t.issue_description, t.status, t.created_at, t.ticket_type
+                            FROM support_tickets t
+                            JOIN customers c ON t.customer_id = c.customer_id
+                            WHERE c.email = ?
+                            ORDER BY t.created_at DESC
+                        ''', (email,))
+                        tickets = [dict(row) for row in cursor.fetchall()]
+                        conn.close()
+                        await websocket.send_json({"type": "ticket_data", "tickets": tickets})
+                    else:
+                        await websocket.send_json({"type": "ticket_data", "tickets": []})
+                    continue
+                    
+                if payload.get("type") == "fetch_orders":
+                    import sqlite3
+                    email = sessions[session_id].get("customer_email")
+                    if email:
+                        conn = sqlite3.connect("db/crm.db")
+                        conn.row_factory = sqlite3.Row
+                        cursor = conn.cursor()
+                        cursor.execute('''
+                            SELECT o.order_id, i.name as item_name, o.order_date, o.delivery_date, o.refund_status, i.return_policy 
+                            FROM orders o
+                            JOIN items i ON o.item_id = i.item_id
+                            JOIN customers c ON o.customer_id = c.customer_id
+                            WHERE c.email = ?
+                            ORDER BY o.delivery_date DESC
+                        ''', (email,))
+                        orders = [dict(row) for row in cursor.fetchall()]
+                        conn.close()
+                        await websocket.send_json({"type": "order_data", "orders": orders})
+                    else:
+                        await websocket.send_json({"type": "order_data", "orders": []})
+                    continue
+                if payload.get("type") == "clear_chat":
+                    sessions[session_id] = {
+                        "messages": [],
+                        "intent": "",
+                        "customer_email": None,
+                        "current_order_id": None
+                    }
+                    continue
+                    
+            except json.JSONDecodeError:
+                # If it's not JSON, it's a standard text chat message. Proceed normally.
+                pass
             
             # Tell the frontend the agent is processing
             await websocket.send_json({"type": "status", "content": "processing"})

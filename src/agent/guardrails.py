@@ -1,4 +1,4 @@
-from typing import TypedDict, Annotated, List, Optional
+from typing import TypedDict, Annotated, List, Optional, Literal
 import operator
 from langchain_core.messages import BaseMessage, AIMessage
 from pydantic import BaseModel, Field
@@ -15,13 +15,13 @@ class AgentState(TypedDict):
 
 # --- 2. Intent Classification ---
 class IntentClassification(BaseModel):
-    intent: str = Field(description="The classified intent.")
+    intent: Literal["policy_query", "refund_request", "greeting", "off_topic"] = Field(description="The classified intent.")
     customer_email: Optional[str] = Field(None, description="The customer's email if provided.")
     current_order_id: Optional[str] = Field(None, description="The order ID, item name, or product details if provided by the user.")
 
 def classify_intent_node(state: AgentState):
     """Node that uses a fast LLM to classify the user's intent and extract entities."""
-    llm = ChatGroq(model=os.getenv("MODEL_NAME"), temperature=0)
+    llm = ChatGroq(model="qwen/qwen3-32b", temperature=0)
     structured_llm = llm.with_structured_output(IntentClassification)
     
     messages = state.get("messages", [])
@@ -47,20 +47,58 @@ If they are not provided, return null for them."""
     ])
     
     chain = prompt | structured_llm
-    result = chain.invoke({"history": history_text})
-    
-    # Return updates to the state
-    updates = {"intent": result.intent}
-    
-    # Only update email/order if they were explicitly found in this message
-    # LangGraph will automatically merge them into the state if they exist.
-    if result.customer_email:
-        updates["customer_email"] = result.customer_email
-    if result.current_order_id:
-        updates["current_order_id"] = str(result.current_order_id)
+    try:
+        result = chain.invoke({"history": history_text})
         
-    print(f"[DEBUG - Guardrails] Intent classified as: {result.intent}")
-    return updates
+        # Return updates to the state
+        updates = {"intent": result.intent}
+        
+        # Only update email/order if they were explicitly found in this message
+        if result.customer_email:
+            email_val = str(result.customer_email).strip()
+            if email_val.lower() not in ["none", "null", "n/a", ""]:
+                updates["customer_email"] = email_val
+                
+        if result.current_order_id:
+            order_val = str(result.current_order_id).strip()
+            if order_val.lower() not in ["none", "null", "n/a", ""]:
+                if not order_val.isdigit() or len(order_val) < 4:
+                    # The LLM extracted a product name or partial ID.
+                    # Let's perform a smart lookup in the database to find the actual Order ID!
+                    email = result.customer_email or state.get("customer_email")
+                    if email:
+                        import sqlite3
+                        conn = sqlite3.connect("db/crm.db")
+                        cursor = conn.cursor()
+                        cursor.execute('''
+                            SELECT o.order_id 
+                            FROM orders o
+                            JOIN items i ON o.item_id = i.item_id
+                            JOIN customers c ON o.customer_id = c.customer_id
+                            WHERE c.email = ? AND (i.name LIKE ? OR CAST(o.order_id AS TEXT) LIKE ?)
+                            ORDER BY o.delivery_date DESC LIMIT 1
+                        ''', (email, f'%{order_val}%', f'%{order_val}%'))
+                        match = cursor.fetchone()
+                        conn.close()
+                        
+                        if match:
+                            updates["current_order_id"] = str(match[0])
+                        else:
+                            # Fallback: couldn't find the item, keep the string just in case
+                            updates["current_order_id"] = order_val
+                    else:
+                        updates["current_order_id"] = order_val
+                else:
+                    updates["current_order_id"] = order_val
+                
+        print(f"[DEBUG - Guardrails] Intent classified as: {result.intent}")
+        if updates.get("current_order_id"):
+            print(f"[DEBUG - Guardrails] Resolved Order ID context to: {updates['current_order_id']}")
+            
+        return updates
+    except Exception as e:
+        print(f"[DEBUG - Guardrails] LLM structured output parsing failed: {e}. Defaulting to safe fallback.")
+        return {"intent": "refund_request"}
 
 # --- 3. Guardrail Nodes ---
 def off_topic_responder(state: AgentState):
