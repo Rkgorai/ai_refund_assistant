@@ -13,20 +13,23 @@ class FaissVectorStore:
         self.index = None
         self.metadata = []
         self.embedding_model = embedding_model
-        self.model = SentenceTransformer(embedding_model)
+        
+        # Use the pipeline to take advantage of process-level caching!
+        self.emb_pipe = EmbeddingPipeline(model_name=embedding_model, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        self.model = self.emb_pipe.model
+        
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
         print(f"[INFO] Loaded embedding model: {embedding_model}")
 
     def build_from_documents(self, documents: List[Any]):
         print(f"[INFO] Building vector store from {len(documents)} raw documents...")
-        emb_pipe = EmbeddingPipeline(model_name=self.embedding_model, chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
         
         # 1. Chunk
-        chunks = emb_pipe.chunk_documents(documents)
+        chunks = self.emb_pipe.chunk_documents(documents)
         
         # 2. Embed
-        embeddings = emb_pipe.embed_chunks(chunks)
+        embeddings = self.emb_pipe.embed_chunks(chunks)
         
         # 3. Prepare Metadata (FIX IS HERE)
         # Previously, we were creating a new dict {"text": content} which deleted 'source' and 'page'.

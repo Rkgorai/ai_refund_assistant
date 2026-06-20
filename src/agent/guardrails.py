@@ -67,22 +67,10 @@ If they are not provided, return null for them."""
                     # Let's perform a smart lookup in the database to find the actual Order ID!
                     email = result.customer_email or state.get("customer_email")
                     if email:
-                        import sqlite3
-                        conn = sqlite3.connect("db/crm.db")
-                        cursor = conn.cursor()
-                        cursor.execute('''
-                            SELECT o.order_id 
-                            FROM orders o
-                            JOIN items i ON o.item_id = i.item_id
-                            JOIN customers c ON o.customer_id = c.customer_id
-                            WHERE c.email = ? AND (i.name LIKE ? OR CAST(o.order_id AS TEXT) LIKE ?)
-                            ORDER BY o.delivery_date DESC LIMIT 1
-                        ''', (email, f'%{order_val}%', f'%{order_val}%'))
-                        match = cursor.fetchone()
-                        conn.close()
-                        
+                        from src.db.db_service import smart_lookup_order_id
+                        match = smart_lookup_order_id(email, order_val)
                         if match:
-                            updates["current_order_id"] = str(match[0])
+                            updates["current_order_id"] = match
                         else:
                             # Fallback: couldn't find the item, keep the string just in case
                             updates["current_order_id"] = order_val

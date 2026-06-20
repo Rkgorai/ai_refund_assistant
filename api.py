@@ -33,6 +33,40 @@ print("LangGraph Agent ready to accept WebSocket connections!")
 # In-memory session state store for managing multiple users/tabs
 sessions = {}
 
+async def handle_json_payload(payload: dict, session_id: str, websocket: WebSocket) -> bool:
+    """Handles structured JSON commands from the frontend. Returns True if handled, False otherwise."""
+    if payload.get("type") == "fetch_tickets":
+        from src.db.db_service import get_tickets_by_email
+        email = sessions[session_id].get("customer_email")
+        if email:
+            tickets = get_tickets_by_email(email)
+            await websocket.send_json({"type": "ticket_data", "tickets": tickets})
+        else:
+            await websocket.send_json({"type": "ticket_data", "tickets": []})
+        return True
+        
+    if payload.get("type") == "fetch_orders":
+        from src.db.db_service import get_orders_by_email
+        email = sessions[session_id].get("customer_email")
+        if email:
+            orders = get_orders_by_email(email)
+            await websocket.send_json({"type": "order_data", "orders": orders})
+        else:
+            await websocket.send_json({"type": "order_data", "orders": []})
+        return True
+        
+    if payload.get("type") == "clear_chat":
+        sessions[session_id] = {
+            "messages": [],
+            "intent": "",
+            "customer_email": None,
+            "current_order_id": None
+        }
+        return True
+        
+    return False
+
+
 @app.websocket("/ws/{session_id}")
 async def websocket_endpoint(websocket: WebSocket, session_id: str):
     await websocket.accept()
@@ -72,60 +106,10 @@ async def websocket_endpoint(websocket: WebSocket, session_id: str):
             # Task 1: Check if the frontend is sending a structured JSON command instead of a chat message
             try:
                 payload = json.loads(data)
-                if not isinstance(payload, dict):
-                    raise json.JSONDecodeError("Payload is not a dictionary", data, 0)
-                    
-                if payload.get("type") == "fetch_tickets":
-                    import sqlite3
-                    email = sessions[session_id].get("customer_email")
-                    if email:
-                        conn = sqlite3.connect("db/crm.db")
-                        conn.row_factory = sqlite3.Row
-                        cursor = conn.cursor()
-                        cursor.execute('''
-                            SELECT t.ticket_id, t.order_id, t.issue_description, t.status, t.created_at, t.ticket_type
-                            FROM support_tickets t
-                            JOIN customers c ON t.customer_id = c.customer_id
-                            WHERE c.email = ?
-                            ORDER BY t.created_at DESC
-                        ''', (email,))
-                        tickets = [dict(row) for row in cursor.fetchall()]
-                        conn.close()
-                        await websocket.send_json({"type": "ticket_data", "tickets": tickets})
-                    else:
-                        await websocket.send_json({"type": "ticket_data", "tickets": []})
-                    continue
-                    
-                if payload.get("type") == "fetch_orders":
-                    import sqlite3
-                    email = sessions[session_id].get("customer_email")
-                    if email:
-                        conn = sqlite3.connect("db/crm.db")
-                        conn.row_factory = sqlite3.Row
-                        cursor = conn.cursor()
-                        cursor.execute('''
-                            SELECT o.order_id, i.name as item_name, o.order_date, o.delivery_date, o.refund_status, i.return_policy 
-                            FROM orders o
-                            JOIN items i ON o.item_id = i.item_id
-                            JOIN customers c ON o.customer_id = c.customer_id
-                            WHERE c.email = ?
-                            ORDER BY o.delivery_date DESC
-                        ''', (email,))
-                        orders = [dict(row) for row in cursor.fetchall()]
-                        conn.close()
-                        await websocket.send_json({"type": "order_data", "orders": orders})
-                    else:
-                        await websocket.send_json({"type": "order_data", "orders": []})
-                    continue
-                if payload.get("type") == "clear_chat":
-                    sessions[session_id] = {
-                        "messages": [],
-                        "intent": "",
-                        "customer_email": None,
-                        "current_order_id": None
-                    }
-                    continue
-                    
+                if isinstance(payload, dict):
+                    handled = await handle_json_payload(payload, session_id, websocket)
+                    if handled:
+                        continue
             except json.JSONDecodeError:
                 # If it's not JSON, it's a standard text chat message. Proceed normally.
                 pass
