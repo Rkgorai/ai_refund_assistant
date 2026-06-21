@@ -59,6 +59,57 @@ export default function Home() {
   const wsRef = useRef<WebSocket | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [sessionId, setSessionId] = useState<string>("");
+  
+  // Voice Feature State
+  const [isListening, setIsListening] = useState(false);
+  const isListeningRef = useRef(false);
+  const [voiceMode, setVoiceMode] = useState(false);
+  const voiceModeRef = useRef(false);
+  const recognitionRef = useRef<any>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+
+  useEffect(() => {
+    // Initialize Web Speech API for interim visual feedback only
+    if (typeof window !== "undefined") {
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        recognitionRef.current = new SpeechRecognition();
+        recognitionRef.current.continuous = false; // Siri mode: stop automatically when user stops speaking
+        recognitionRef.current.interimResults = true;
+        
+        recognitionRef.current.onresult = (event: any) => {
+          let interimTranscript = '';
+          let finalTranscript = '';
+          
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+              finalTranscript += event.results[i][0].transcript;
+            } else {
+              interimTranscript += event.results[i][0].transcript;
+            }
+          }
+          // Show the words as they speak simultaneously
+          setInput(finalTranscript + interimTranscript);
+        };
+
+        // Auto-stop recording when speech ends (like Siri)
+        recognitionRef.current.onend = () => {
+          if (isListeningRef.current) {
+            if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+              mediaRecorderRef.current.stop();
+            }
+            setIsListening(false);
+          }
+        };
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    voiceModeRef.current = voiceMode;
+    isListeningRef.current = isListening;
+  }, [voiceMode, isListening]);
 
   useEffect(() => {
     // Session Persistence logic (Task 2)
@@ -97,6 +148,23 @@ export default function Home() {
       } else if (data.type === "message") {
         setMessages(prev => [...prev, { role: "ai", content: data.content }]);
         setIsProcessing(false);
+        
+        // Output TTS if Voice Mode is active
+        if (voiceModeRef.current) {
+          fetch("/api/tts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text: data.content })
+          })
+          .then(response => response.blob())
+          .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const audio = new Audio(url);
+            audio.play();
+            audio.onended = () => URL.revokeObjectURL(url);
+          })
+          .catch(e => console.error("TTS fetch failed", e));
+        }
       } else if (data.type === "sync_history") {
         // Restore persistent chat history
         if (data.history.length > 0) {
@@ -136,6 +204,74 @@ export default function Home() {
     wsRef.current.send(input);
     setInput("");
     setIsProcessing(true);
+  };
+  
+  const toggleMicrophone = async () => {
+    if (isListening) {
+      if (recognitionRef.current) {
+        try { recognitionRef.current.stop(); } catch (e) {}
+      }
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+        mediaRecorderRef.current.stop();
+      }
+      setIsListening(false);
+    } else {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mediaRecorder = new MediaRecorder(stream);
+        mediaRecorderRef.current = mediaRecorder;
+        audioChunksRef.current = [];
+        
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            audioChunksRef.current.push(event.data);
+          }
+        };
+        
+        mediaRecorder.onstop = async () => {
+          const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+          stream.getTracks().forEach(track => track.stop());
+          
+          const formData = new FormData();
+          formData.append("audio", audioBlob, "recording.webm");
+          
+          setIsProcessing(true);
+          try {
+            const response = await fetch("/api/transcribe", {
+              method: "POST",
+              body: formData
+            });
+            const data = await response.json();
+            
+            if (data.text) {
+              const finalInput = data.text;
+              setInput("");
+              
+              // Auto-submit the voice query instantly just like Siri
+              if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+                setMessages(prev => [...prev, { role: "user", content: finalInput }]);
+                wsRef.current.send(finalInput);
+              }
+            }
+          } catch (e) {
+            console.error("Transcription failed", e);
+            setIsProcessing(false);
+          }
+        };
+        
+        // Start visual feedback
+        setInput("");
+        if (recognitionRef.current) {
+          try { recognitionRef.current.start(); } catch (e) {}
+        }
+        
+        mediaRecorder.start();
+        setIsListening(true);
+      } catch (err) {
+        console.error("Error accessing microphone", err);
+        alert("Microphone access denied or not available.");
+      }
+    }
   };
   
   const fetchTickets = () => {
@@ -203,12 +339,20 @@ export default function Home() {
         </div>
         
         <form className="input-area" onSubmit={sendMessage}>
+          <button 
+            type="button" 
+            className={`mic-btn ${isListening ? 'listening' : ''}`}
+            onClick={toggleMicrophone}
+            title={isListening ? "Stop listening" : "Start Voice Input"}
+          >
+            🎤
+          </button>
           <input 
             type="text" 
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message to the agent..."
-            disabled={isProcessing}
+            placeholder={isListening ? "Listening..." : "Type your message to the agent..."}
+            disabled={isProcessing || isListening}
           />
           <button type="submit" disabled={isProcessing || !input.trim() || !isConnected}>
             {isConnected ? "Send" : "Disconnected"}
@@ -223,7 +367,16 @@ export default function Home() {
             <div className={`status-dot ${isProcessing ? 'processing' : ''}`}></div>
             <span className="gradient-text">System State Dashboard</span>
           </div>
-          {sessionId && <span style={{ fontSize: '0.75rem', color: '#8b949e', fontFamily: 'monospace', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: '4px' }}>Session: {sessionId}</span>}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            {/* Voice Mode Toggle */}
+            <div className="voice-toggle" onClick={() => setVoiceMode(!voiceMode)} title="Toggle AI Text-to-Speech">
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: voiceMode ? '#58a6ff' : '#8b949e', letterSpacing: '0.5px' }}>VOICE MODE</span>
+              <div className={`toggle-switch ${voiceMode ? 'on' : 'off'}`}>
+                <div className="toggle-knob"></div>
+              </div>
+            </div>
+            {sessionId && <span style={{ fontSize: '0.75rem', color: '#8b949e', fontFamily: 'monospace', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: '4px' }}>Session: {sessionId}</span>}
+          </div>
         </div>
         
         <div style={{ fontSize: '0.85rem', color: isProcessing ? 'var(--accent-color)' : '#2ea043', marginTop: '-1rem', fontWeight: 600, letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '6px' }}>

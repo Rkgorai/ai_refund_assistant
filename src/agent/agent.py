@@ -26,30 +26,31 @@ def ask_for_info(state: AgentState):
 
 # --- Node: Policy RAG ---
 def policy_rag_node(state: AgentState):
-    """Handles policy questions using the search tool."""
-    llm = ChatGroq(model=os.getenv("MODEL_NAME"), temperature=0)
-    tools = [search_return_policy]
-    
-    system_prompt = """You are an AI Refund Assistant. Use the search_return_policy tool to answer the user's policy question accurately.
-CRITICAL INSTRUCTIONS:
-1. Provide a direct, concise answer in 1-3 short paragraphs.
-2. DO NOT use markdown headings (like ## Step 1), bullet points, or repetitive numbered lists.
-3. Write naturally like a human customer support agent.
-4. If you cannot find the answer in the policy, say so politely."""
-
-    # We use LangGraph's native prebuilt agent instead of legacy AgentExecutor
-    agent = create_react_agent(
-        llm, 
-        tools=tools, 
-        prompt=system_prompt
-    )
-    
+    """Handles policy questions using a deterministic RAG approach to prevent ReAct loop hallucinations."""
     try:
-        response = agent.invoke({"messages": state["messages"]})
-        return {"messages": [response["messages"][-1]]}
+        query = state["messages"][-1].content
+        
+        # 1. Deterministically execute the search tool instead of relying on the LLM to decide
+        policy_text = search_return_policy.invoke({"query": query})
+        
+        # 2. Provide a strict prompt to summarize the retrieved policy
+        llm = ChatGroq(model=os.getenv("MODEL_NAME"), temperature=0)
+        system_prompt = f"""You are an AI Refund Assistant.
+The user asked a question about our policies: "{query}"
+
+Here is the official policy documentation retrieved from the database:
+---
+{policy_text}
+---
+
+Answer the user's question accurately and concisely based ONLY on the documentation above. 
+CRITICAL INSTRUCTION: DO NOT use markdown headings, bold text, or numbered steps. Do not hallucinate. Write naturally like a human customer support agent in 1-3 short sentences. If the documentation does not contain the answer, say you don't know."""
+        
+        response = llm.invoke(system_prompt)
+        return {"messages": [AIMessage(content=response.content)]}
     except Exception as e:
         print(f"[DEBUG - Agent] Policy RAG error: {e}")
-        return {"messages": [AIMessage(content="I'm sorry, I encountered an internal logic error while searching policies. Could you please rephrase your question?")]}
+        return {"messages": [AIMessage(content="I'm sorry, I encountered an internal error while searching policies. Could you please rephrase your question?")]}
 
 # --- Routing Logic ---
 def route_intent(state: AgentState):
