@@ -15,6 +15,7 @@ class RefundTicketSchema(BaseModel):
     email: str = Field(description="The customer's email address")
     order_id: str = Field(description="The numeric ID of the order")
     issue_description: str = Field(description="The reason for the return or refund")
+    ticket_type: str = Field(description="The type of ticket: 'Return' or 'Replacement'")
 
 class CustomerOrdersSchema(BaseModel):
     email: str = Field(description="The customer's email address")
@@ -77,7 +78,7 @@ def get_customer_orders(email: str) -> str:
         return f"Database error: {e}"
 
 @tool(args_schema=RefundTicketSchema)
-def file_refund_ticket(email: str, order_id: str, issue_description: str) -> str:
+def file_refund_ticket(email: str, order_id: str, issue_description: str, ticket_type: str) -> str:
     """
     File a formal support ticket to process a refund or replacement for a customer's order.
     Only use this if the item is eligible for return/replacement based on the policy and delivery date.
@@ -98,44 +99,14 @@ def file_refund_ticket(email: str, order_id: str, issue_description: str) -> str
         if not order:
             return "Error: Order not found or does not belong to this customer."
             
-        delivery_date_str, return_policy, refund_status = order
+        delivery_date_str, return_policy, refund_status, category, item_name = order
         
         if refund_status and refund_status != 'None':
             return f"Error: Order {order_id_int} already has an active request (Status: {refund_status}). Multiple tickets for the same order are not allowed."
         
-        # Strict Server-Side Validation
-        if return_policy == 'Non-Returnable':
-            try:
-                delivery_date = datetime.datetime.strptime(delivery_date_str, "%Y-%m-%d")
-                if (datetime.datetime.now() - delivery_date).days <= 7:
-                    issue_lower = issue_description.lower()
-                    if any(word in issue_lower for word in ["wrong", "different", "incorrect", "not what i ordered", "another"]):
-                        return "Error: If you received a different product than ordered, please contact customer support via complaints@example.com."
-            except ValueError:
-                pass
-            return "Error: This item is Non-Returnable."
-            
-        import re
-        match = re.search(r'(\d+)', return_policy)
-        if match:
-            days = int(match.group(1))
-            try:
-                # Assuming delivery_date is in 'YYYY-MM-DD' format
-                delivery_date = datetime.datetime.strptime(delivery_date_str, "%Y-%m-%d")
-                expiration_date = delivery_date + datetime.timedelta(days=days)
-                current_date = datetime.datetime.now()
-                
-                if current_date > expiration_date:
-                    return f"Error: The return window expired on {expiration_date.strftime('%Y-%m-%d')}. The item was delivered on {delivery_date_str} and the policy is '{return_policy}'."
-            except ValueError:
-                pass # Fallback if date parsing fails
-            
-        # Determine ticket type based on policy
-        ticket_type = "Replacement" if "Replacement" in return_policy else "Return"
-        
         file_ticket_and_update_order(customer_id, order_id_int, issue_description, ticket_type)
         
-        if "Replacement" in return_policy:
+        if ticket_type == "Replacement":
             return f"Successfully filed support ticket for Order {order_id_int}. Your replacement is processed and a new item will be shipped to you shortly after the original item is picked up."
         else:
             return f"Successfully filed support ticket for Order {order_id_int}. Your return request is done and will be refunded to your original payment method after pickup."

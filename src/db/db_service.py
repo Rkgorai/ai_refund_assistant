@@ -2,7 +2,10 @@ import sqlite3
 import datetime
 from typing import List, Dict, Optional, Tuple
 
-DB_PATH = "db/crm.db"
+import os
+
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DB_PATH = os.path.join(project_root, "db", "crm.db")
 
 def _get_connection():
     conn = sqlite3.connect(DB_PATH)
@@ -61,11 +64,11 @@ def smart_lookup_order_id(email: str, search_term: str) -> Optional[str]:
     conn.close()
     return str(match["order_id"]) if match else None
 
-def get_order_eligibility_details(order_id: int, email: str) -> Optional[Tuple[str, str, str]]:
+def get_order_eligibility_details(order_id: int, email: str) -> Optional[Tuple[str, str, str, str, str]]:
     conn = _get_connection()
     cursor = conn.cursor()
     cursor.execute('''
-        SELECT o.delivery_date, i.return_policy, o.refund_status 
+        SELECT o.delivery_date, i.return_policy, o.refund_status, i.category, i.name as item_name
         FROM orders o
         JOIN items i ON o.item_id = i.item_id
         JOIN customers c ON o.customer_id = c.customer_id
@@ -74,7 +77,7 @@ def get_order_eligibility_details(order_id: int, email: str) -> Optional[Tuple[s
     order = cursor.fetchone()
     conn.close()
     if order:
-        return (order["delivery_date"], order["return_policy"], order["refund_status"])
+        return (order["delivery_date"], order["return_policy"], order["refund_status"], order["category"], order["item_name"])
     return None
 
 def file_ticket_and_update_order(customer_id: int, order_id: int, issue_description: str, ticket_type: str) -> None:
