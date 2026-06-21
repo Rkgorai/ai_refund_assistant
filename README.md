@@ -63,8 +63,8 @@ graph TD
 2. **Routing Logic**:
    The LangGraph checks the `intent`. If a user asks about the weather (`off_topic`), they are immediately routed to the `Off-Topic Responder`, completely bypassing the database and RAG tools to save tokens and prevent hallucinations.
 
-3. **Refund Processor (No LLM Loops!)**:
-   When processing a refund request, the agent does *not* ask the LLM if the order is eligible. Instead, it hits the `refund_processor_node`, which executes `_check_order_eligibility()` in pure Python. It pulls the order's `delivery_date` and `return_policy` from SQLite, performs date math, and explicitly denies or approves the refund.
+3. **Refund Processor (Dynamic RAG Evaluator)**:
+   When processing a refund request, the agent dynamically evaluates eligibility by combining RAG with database facts. It extracts the exact user issue, queries the **FAISS VectorStore** for the official policy, and passes those rules along with SQLite database facts (delivery date, item tag) into an LLM. The LLM outputs a strict JSON evaluation (`is_eligible`, `ticket_type`), and final Python guardrails ensure the ticket matches database constraints without hallucination loops.
 
 4. **Real-Time State Sync**:
    The FastAPI backend uses `await websocket.send_json({"type": "state_update", ...})` to push the exact internal tracking variables (intent, email, order ID) to the Next.js Admin Dashboard instantly.
