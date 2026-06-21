@@ -1,8 +1,10 @@
 import sqlite3
 import os
 
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def check_db():
-    db_path = os.path.join("db", "crm.db")
+    db_path = os.path.join(project_root, "db", "crm.db")
     if not os.path.exists(db_path):
         print(f"Database not found at {db_path}!")
         return

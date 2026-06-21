@@ -2,9 +2,11 @@ import sqlite3
 import csv
 import os
 
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def load_csv_to_sqlite():
-    db_path = os.path.join("db", "crm.db")
-    csv_dir = os.path.join("db", "csv_data")
+    db_path = os.path.join(project_root, "db", "crm.db")
+    csv_dir = os.path.join(project_root, "db", "csv_data")
     
     # Create a connection to the SQLite database
     conn = sqlite3.connect(db_path)

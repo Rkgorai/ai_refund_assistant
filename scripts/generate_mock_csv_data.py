@@ -3,8 +3,10 @@ import os
 from datetime import date, timedelta
 import random
 
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def generate_mock_data():
-    csv_dir = os.path.join("db", "csv_data")
+    csv_dir = os.path.join(project_root, "db", "csv_data")
     os.makedirs(csv_dir, exist_ok=True)
 
     # 1. Generate Customers (Indian Context)
