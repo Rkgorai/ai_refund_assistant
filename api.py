@@ -2,9 +2,14 @@ import os
 import sys
 import asyncio
 import json
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from dotenv import load_dotenv
+
+from src.voice.stt import stt_router, load_stt_model
+from src.voice.tts import tts_router
 
 # Ensure imports work regardless of where the script is executed from
 project_root = os.path.dirname(os.path.abspath(__file__))
@@ -25,6 +30,17 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(stt_router, prefix="/api")
+app.include_router(tts_router, prefix="/api")
+
+from src.agent.tools import preload_vector_store
+
+@app.on_event("startup")
+async def load_models():
+    print("Loading AI Models at startup to prevent lag...")
+    load_stt_model()
+    preload_vector_store()
 
 print("Compiling LangGraph State Machine...")
 graph = build_agent_graph()

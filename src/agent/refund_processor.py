@@ -50,69 +50,67 @@ def _check_order_eligibility(order_id: str, email: str) -> str | None:
         return None
 
 def _extract_and_file_ticket(state: AgentState, email: str, order_id: str) -> dict:
-    """Uses LLM to extract ticket details and file the ticket."""
+    """Uses LLM with structured output to extract ticket details and file the ticket deterministically."""
+    from pydantic import BaseModel, Field
+    from typing import Optional
+    
+    class TicketDecision(BaseModel):
+        should_file_ticket: bool = Field(description="True if the user has provided both the order ID and a clear reason for the return/issue.")
+        order_id: Optional[str] = Field(description="The numeric order ID the user wants to return.")
+        issue_description: Optional[str] = Field(description="The reason for the return or issue.")
+        ai_response: str = Field(description="If should_file_ticket is False, what should the AI say to the user to get the missing information? Keep it to 1 sentence.")
+
     system_msg = f"""You are an AI Refund Assistant.
 Customer Email: {email}
-Context Order ID (if known): {order_id}
+Context Order ID: {order_id}
 
-The user has already seen their list of orders.
-Engage in a brief, polite conversation to understand the issue with their order.
-CRITICAL INSTRUCTION: DO NOT use markdown headings, bold text, or numbered steps. Write naturally like a human customer support agent in 1-2 short sentences.
-Once the user explicitly confirms BOTH the Order ID and the issue they are facing, respond EXACTLY with the following string and nothing else:
-TICKET: ORDER_ID | ISSUE
-Example: TICKET: 10060 | didn't like the fitting
+Determine if you have enough information to file a support ticket.
+You need BOTH the Order ID and a clear issue description from the user.
+If you have both, set should_file_ticket to true.
+If you are missing either, set should_file_ticket to false and provide a brief 1-sentence ai_response asking for the missing info."""
 
-If you need more details about the issue or which order they mean, just ask them naturally. Do NOT use the word TICKET unless you have enough information to file the support ticket.
-"""
     llm = ChatGroq(model=os.getenv("MODEL_NAME"), temperature=0)
+    structured_llm = llm.with_structured_output(TicketDecision)
+    
     prompt = ChatPromptTemplate.from_messages([
         ("system", system_msg),
         MessagesPlaceholder(variable_name="messages")
     ])
-    chain = prompt | llm
+    chain = prompt | structured_llm
     
     try:
-        # LLMs struggle with large contexts, so we only pass the last 6 messages to the LLM
-        # while keeping the full history in the LangGraph state.
+        # LLMs struggle with large contexts, so we only pass the last 6 messages
         llm_messages = state["messages"][-6:]
-        response = chain.invoke({"messages": llm_messages})
-        final_msg = response.content
+        result: TicketDecision = chain.invoke({"messages": llm_messages})
         
-        # Bulletproof parsing logic (Handles missing XML tags, typos, and truncation)
-        if "|" in final_msg and ("TICKET" in final_msg.upper() or "TICK:" in final_msg.upper()):
-            parts = final_msg.split("|")
-            left_part = parts[0]
-            extracted_issue = parts[1].replace("</TICKET>", "").replace("/TICKET>", "").replace(">", "").strip()
+        if result.should_file_ticket and result.order_id and result.issue_description:
+            # We have everything we need, file the ticket deterministically
+            extracted_order_id = str(result.order_id)
             
-            # Extract numbers from the left side of the pipe
-            nums = re.findall(r'\d+', left_part)
-            extracted_order_id = nums[-1] if nums else ""
-            
-            # The 8B model sometimes hallucinates and truncates the order ID (e.g. '101' instead of '10109')
-            # If the ID is too short, we fall back to the one extracted by the Guardrails Classifier Node!
+            # Sanity check fallback to context order_id if LLM hallucinated a short string
             if len(extracted_order_id) < 4 and order_id:
                 extracted_order_id = order_id
                 
-            if not extracted_order_id or len(extracted_order_id) < 4:
+            if len(extracted_order_id) < 4:
                 return {"messages": [AIMessage(content="Could you please confirm the exact Order ID you wish to return?")]}
-            
+                
             ticket_result = file_refund_ticket.invoke({
                 "email": email,
                 "order_id": extracted_order_id,
-                "issue_description": extracted_issue
+                "issue_description": result.issue_description
             })
             
-            # Smooth out raw errors into natural customer service apologies
             if ticket_result.startswith("Error: "):
                 ticket_result = ticket_result.replace("Error: ", "I apologize, but ")
-            
-            # Whether successful or an error (e.g. Non-Returnable), wipe the order_id from the state
-            # so the next request starts with a clean slate!
+                
             return {"messages": [AIMessage(content=ticket_result)], "current_order_id": None}
             
-        return {"messages": [response]}
+        else:
+            # We don't have enough info, ask the user
+            return {"messages": [AIMessage(content=result.ai_response)]}
+            
     except Exception as e:
-        print(f"[DEBUG - Agent] Refund processor error: {e}")
+        print(f"[DEBUG - Agent] Refund processor structured parsing error: {e}")
         return {"messages": [AIMessage(content="I need a bit more clarification. Which exact order ID do you want to return, and what is the issue?")]}
 
 def refund_processor_node(state: AgentState):

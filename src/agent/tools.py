@@ -21,6 +21,15 @@ class CustomerOrdersSchema(BaseModel):
 
 _VECTOR_STORE_CACHE = None
 
+def preload_vector_store():
+    """Pre-load the Faiss VectorStore and SentenceTransformer into memory at startup."""
+    global _VECTOR_STORE_CACHE
+    if _VECTOR_STORE_CACHE is None:
+        print("[INFO] Preloading Faiss VectorStore & Embedding Model...")
+        _VECTOR_STORE_CACHE = FaissVectorStore(persist_dir="db/vector_store")
+        _VECTOR_STORE_CACHE.load()
+        print("[INFO] VectorStore loaded successfully!")
+
 @tool
 def search_return_policy(query: str) -> str:
     """

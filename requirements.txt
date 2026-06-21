@@ -16,3 +16,7 @@ unstructured
 openpyxl
 jq
 markdown
+faster-whisper
+edge-tts
+python-multipart
+groq
