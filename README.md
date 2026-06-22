@@ -42,9 +42,11 @@ graph TD
     B --> |greeting| G[Greeting Node]
     B --> |off_topic| H[Off-Topic Responder]
     
-    E --> I[Strict DB Eligibility Check]
-    I --> |Eligible| K[File Refund Ticket]
-    I --> |Not Eligible| L[Deny Request]
+    E --> I[Extract Order ID & Issue]
+    I --> M[Query FAISS VectorStore]
+    M --> N[LLM Dynamic Policy Evaluation]
+    N --> |Eligible| K[File Replacement/Return Ticket]
+    N --> |Not Eligible| L[Deny Request]
     F --> J[Search FAISS VectorStore & Summarize]
     
     D --> END((End))
