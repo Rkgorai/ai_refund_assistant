@@ -24,7 +24,8 @@ def load_csv_to_sqlite():
     with open(os.path.join(csv_dir, 'customers.csv'), 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
         next(reader) # Skip header
-        cursor.executemany('INSERT INTO customers VALUES (?, ?, ?, ?)', reader)
+        cleaned_rows = [[col.strip() if isinstance(col, str) else col for col in row] for row in reader]
+        cursor.executemany('INSERT INTO customers VALUES (?, ?, ?, ?)', cleaned_rows)
 
     # 2. Items Table
     cursor.execute('DROP TABLE IF EXISTS items')

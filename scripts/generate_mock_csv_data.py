@@ -134,13 +134,13 @@ def generate_mock_data():
         
         # Generate tickets based on hard status
         if refund_action == 'Requested':
-            tickets.append((ticket_id, customer_id, order_id, f'The {item[1]} is defective or unwanted. Please process my request.', 'Open', (today - timedelta(days=random.randint(0, 2))).isoformat(), ticket_type))
+            tickets.append((ticket_id, customer_id, order_id, f'The {item[3]} is defective or unwanted. Please process my request.', 'Open', (today - timedelta(days=random.randint(0, 2))).isoformat(), ticket_type))
             ticket_id += 1
         elif refund_action == 'Processed':
-            tickets.append((ticket_id, customer_id, order_id, f'Returned/Replaced {item[1]} successfully.', 'Closed', (today - timedelta(days=random.randint(5, 10))).isoformat(), ticket_type))
+            tickets.append((ticket_id, customer_id, order_id, f'Returned/Replaced {item[3]} successfully.', 'Closed', (today - timedelta(days=random.randint(5, 10))).isoformat(), ticket_type))
             ticket_id += 1
         elif refund_action == 'Rejected':
-            tickets.append((ticket_id, customer_id, order_id, f'Why was my request for {item[1]} rejected?', 'Closed', (today - timedelta(days=random.randint(1, 20))).isoformat(), ticket_type))
+            tickets.append((ticket_id, customer_id, order_id, f'Why was my request for {item[3]} rejected?', 'Closed', (today - timedelta(days=random.randint(1, 20))).isoformat(), ticket_type))
             ticket_id += 1
 
         orders.append((order_id, customer_id, i_id, quantity, order_date.isoformat(), delivery_date.isoformat(), total_amount, payment, refund_status))
